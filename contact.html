@@ -2,101 +2,57 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Integrations Marketo Form</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Integrations Marketo Form</title>
 
   <!-- Start of Async Drift Code -->
-<script>
+  <script>
     "use strict";
-    
-    !function() {
+
+    !function () {
       var t = window.driftt = window.drift = window.driftt || [];
       if (!t.init) {
         if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
-        t.invoked = !0, t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ], 
-        t.factory = function(e) {
-          return function() {
-            var n = Array.prototype.slice.call(arguments);
-            return n.unshift(e), t.push(n), t;
+        t.invoked = !0, t.methods = ["identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on"],
+          t.factory = function (e) {
+            return function () {
+              var n = Array.prototype.slice.call(arguments);
+              return n.unshift(e), t.push(n), t;
+            };
+          }, t.methods.forEach(function (e) {
+            t[e] = t.factory(e);
+          }), t.load = function (t) {
+            var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
+            o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
+            var i = document.getElementsByTagName("script")[0];
+            i.parentNode.insertBefore(o, i);
           };
-        }, t.methods.forEach(function(e) {
-          t[e] = t.factory(e);
-        }), t.load = function(t) {
-          var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
-          o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
-          var i = document.getElementsByTagName("script")[0];
-          i.parentNode.insertBefore(o, i);
-        };
       }
     }();
     drift.SNIPPET_VERSION = '0.3.1';
     drift.load('3vyrkmr4vcww');
-    </script>
-    <!-- End of Async Drift Code -->
-    
+  </script>
+  <!-- End of Async Drift Code -->
+
 </head>
 
 <body>
-    <h1>Integrations</h1>
-    <!DOCTYPE html>
-    <html lang="en">
-    
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Integrations</title>
-    
-      <!-- Start of Async Drift Code -->
+
+  <body>
+    <h1>Marketo Form</h1>
+
+
+    <script src="//844-RKG-112.mktoweb.com/js/forms2/js/forms2.min.js"></script>
+    <form id="mktoForm_1088"></form>
+    <script>MktoForms2.loadForm("//844-RKG-112.mktoweb.com", "844-RKG-112", 1088);</script>
     <script>
-        "use strict";
-        
-        !function() {
-          var t = window.driftt = window.drift = window.driftt || [];
-          if (!t.init) {
-            if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
-            t.invoked = !0, t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ], 
-            t.factory = function(e) {
-              return function() {
-                var n = Array.prototype.slice.call(arguments);
-                return n.unshift(e), t.push(n), t;
-              };
-            }, t.methods.forEach(function(e) {
-              t[e] = t.factory(e);
-            }), t.load = function(t) {
-              var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
-              o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
-              var i = document.getElementsByTagName("script")[0];
-              i.parentNode.insertBefore(o, i);
-            };
-          }
-        }();
-        drift.SNIPPET_VERSION = '0.3.1';
-        drift.load('3vyrkmr4vcww');
-        </script>
-        <!-- End of Async Drift Code -->
-        
-    <!-- CookiePro Cookies Consent Notice start for dvalenciadrift.github.io -->
-    
-    <script src="https://cookie-cdn.cookiepro.com/scripttemplates/otSDKStub.js"  type="text/javascript" charset="UTF-8" data-domain-script="1748eab6-7ae2-417c-80b5-baca22f2bf6a" ></script>
-    <script type="text/javascript">
-    function OptanonWrapper() { }
+      drift.api.collectFormData('#mktoForm_1088', {
+        campaignId: 2631295,
+        followupUrl: 'Optional: Remove this or replace with thank you page URL'
+      });
     </script>
-    <!-- CookiePro Cookies Consent Notice end for dvalenciadrift.github.io -->
-    </head>
-    
-    <body>
-        <h1>Integrations</h1>
-    
-    
-        <script src="//844-RKG-112.mktoweb.com/js/forms2/js/forms2.min.js"></script> <form id="mktoForm_1088"></form> 
-        <script>MktoForms2.loadForm("//844-RKG-112.mktoweb.com", "844-RKG-112", 1088);</script>
-    </body>
-    
-    </html>
-</body>
+  </body>
 
 </html>
-
