@@ -128,7 +128,9 @@ function OptanonWrapper() {
       }
     })
     setTimeout(() => {
-      driftLoader()
+      if (unloaded == true) {
+        driftLoader()
+      }
     }, 5000)
 
   </script>
