@@ -91,8 +91,9 @@ function OptanonWrapper() {
      <script>
       var unloaded = false;
       function driftLoader() {
-        if (unloaded == true) {
-            drift.load('kv8it8pexktt');
+        while(window.drift.hasInitialized === true) {
+          drift.load('kv8it8pexktt');
+          console.log(window.drift.hasInitialized)
         }
       };
 
