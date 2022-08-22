@@ -94,23 +94,23 @@ function OptanonWrapper() {
         var counter = 0
         if (unloaded == true) {
           while(counter < 3) {
+            console.log('inside while')
             drift.load('kv8it8pexktt');
             counter ++
           }
         }
       };
 
-      window.drift.on("conversation:playbookFired", function (data) {
+      window.drift.on("conversation:playbookFired", async function (data) {
         console.log(data)
         if (data.playbookId == '2536091') {
-          drift.unload()
-          drift.load('kv8it8pexktt');
+          await drift.unload()
           unloaded = true
           console.log("This playbook caused Drift to unload") }
         else { console.log("Visitor does not match ABM Targeting Conditions by Reverse IP") };
 
         if (unloaded == true) {
-          setTimeout(driftLoader(), 1000)
+          setTimeout(driftLoader(), 5000)
           console.log("Drift is unloaded and I really wish this was the driftLoader() function but it's not working for me, nor is just a regular drift.load('kv8it8pexktt')");
         }
 
