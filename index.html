@@ -91,10 +91,8 @@ function OptanonWrapper() {
      <script>
       var unloaded = false;
       function driftLoader() {
-        while(window.drift.hasInitialized === true) {
           drift.load('kv8it8pexktt');
           console.log(window.drift.hasInitialized)
-        }
       };
 
       window.drift.on("conversation:playbookFired", function (data) {
