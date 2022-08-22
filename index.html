@@ -111,7 +111,7 @@ function OptanonWrapper() {
     </script> -->
 
 
-  <!-- <script>
+  <script>
     function driftLoader() {
       console.log('outside playbookFired')
       drift.load('kv8it8pexktt')
@@ -129,33 +129,8 @@ function OptanonWrapper() {
     })
     setTimeout(() => {
       driftLoader()
-    }, 5000)
+    }, 2000)
 
-  </script> -->
-
-  <script>
-    function setStorageUnloaded (value) {
-        sessionStorage.setItem('unloaded', value);
-    }
-
-    function getStorageUnloaded () {
-        sessionStorage.getItem('unloaded')
-    }
-
-    setStorageUnloaded('false');
-    unloaded = getStorageUnloaded();
-
-    window.drift.on("conversation:playbookFired", function (data) {
-      if (data.playbookId == '2536091' && !unloaded) {
-        drift.unload()
-        setStorageUnloaded('true')
-        console.log('Drift A unloaded')
-      }
-    })
-    if (unloaded) {
-        drift.load('kv8it8pexktt')
-        console.log('Drift B loaded')
-    }
   </script>
 </body>
 
