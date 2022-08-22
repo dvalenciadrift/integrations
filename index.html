@@ -101,11 +101,8 @@ function OptanonWrapper() {
         console.log(data)
         if (data.playbookId == '2536091') {
           drift.unload()
-          .then(function() {
-            console.log('in then()')
-            drift.load('kv8it8pexktt');
-          } )
-         // unloaded = true
+          drift.load('kv8it8pexktt');
+          unloaded = true
           console.log("This playbook caused Drift to unload") }
         else { console.log("Visitor does not match ABM Targeting Conditions by Reverse IP") };
 
