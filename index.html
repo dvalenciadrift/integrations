@@ -38,10 +38,10 @@
     
 <!-- CookiePro Cookies Consent Notice start for dvalenciadrift.github.io -->
 
-<script src="https://cookie-cdn.cookiepro.com/scripttemplates/otSDKStub.js"  type="text/javascript" charset="UTF-8" data-domain-script="1748eab6-7ae2-417c-80b5-baca22f2bf6a" ></script>
+<!-- <script src="https://cookie-cdn.cookiepro.com/scripttemplates/otSDKStub.js"  type="text/javascript" charset="UTF-8" data-domain-script="1748eab6-7ae2-417c-80b5-baca22f2bf6a" ></script>
 <script type="text/javascript">
 function OptanonWrapper() { }
-</script>
+</script> -->
 <!-- CookiePro Cookies Consent Notice end for dvalenciadrift.github.io -->
 </head>
 
@@ -49,7 +49,7 @@ function OptanonWrapper() { }
     <h1>Integrations</h1>
 
 
-    <script>
+    <!-- <script>
         // function to pull cookie value
 function getCookie(name) {
     var value = "; " + document.cookie;
@@ -85,6 +85,25 @@ function OptanonWrapper() {
         location.reload();
     });
 }
+    </script> -->
+
+     <!--Tim load unload issue-->
+     <script>
+      var unloaded = false;
+      function driftLoader() {
+        if (unloaded == true) {
+          console.log('in driftLoader')
+          drift.load('kv8it8pexktt');
+        }
+      };
+
+      window.drift.on("conversation:playbookFired", function (data) {
+        if (data.playbookId == '334164') { drift.unload(), unloaded = true, console.log("This playbook caused Drift to unload") }
+        else { console.log("Visitor does not match ABM Targeting Conditions by Reverse IP") };
+
+        if (unloaded == true) { console.log("Drift is unloaded and I really wish this was the driftLoader() function but it's not working for me, nor is just a regular drift.load('kv8it8pexktt')"); }
+
+      });
     </script>
 </body>
 
