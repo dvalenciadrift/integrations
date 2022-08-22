@@ -127,7 +127,9 @@ function OptanonWrapper() {
         console.log('Drift B loaded')
       }
     })
-    setTimeout(driftLoader(), 5000)
+    setTimeout(() => {
+      driftLoader()
+    }, 5000)
 
   </script>
 </body>
