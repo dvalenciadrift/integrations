@@ -112,6 +112,10 @@ function OptanonWrapper() {
 
 
   <script>
+    function driftLoader() {
+      console.log('outside playbookFired')
+      drift.load('kv8it8pexktt')
+    }
     var unloaded = false;
     window.drift.on("conversation:playbookFired", function (data) {
       if (data.playbookId == '2536091' && unloaded == false) {
@@ -123,8 +127,8 @@ function OptanonWrapper() {
         console.log('Drift B loaded')
       }
     })
-    console.log('outside playbookFired')
-    drift.load('kv8it8pexktt')
+    setTimeout(driftLoader(), 5000)
+
   </script>
 </body>
 
