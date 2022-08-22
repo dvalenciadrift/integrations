@@ -104,6 +104,7 @@ function OptanonWrapper() {
           drift.page()
           unloaded = true
           console.log("This playbook caused Drift to unload")
+          window.drift.hasInitialized = false
         }
         else { console.log("Visitor does not match ABM Targeting Conditions by Reverse IP") };
         if (unloaded == true) {
