@@ -110,30 +110,31 @@ function OptanonWrapper() {
       });
     </script> -->
 
-
+<!-- 
   <script>
+
     function driftLoader() {
       console.log('outside playbookFired')
       drift.load('kv8it8pexktt')
     }
     var unloaded = false;
     window.drift.on("conversation:playbookFired", function (data) {
+      console.log(window.drift.hasInitialized, 'Status 1')
       if (data.playbookId == '2536091' && unloaded == false) {
         drift.unload()
         unloaded = true
-        console.log('Drift A unloaded')
-        console.log(unloaded)
-        drift.load('kv8it8pexktt')
-        console.log('Drift B loaded')
       }
+      console.log(window.drift.hasInitialized, 'Status 2')
     })
+
     setTimeout(() => {
+      console.log(window.drift.hasInitialized, 'Status 3')
       if (unloaded == true) {
         driftLoader()
       }
-    }, 5000)
+    }, 7000)
 
-  </script>
+  </script> -->
 </body>
 
 </html>
