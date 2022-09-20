@@ -50,6 +50,7 @@
       MktoForms2.loadForm("//844-RKG-112.mktoweb.com", "844-RKG-112", 1088, function (form) {
         form.onSuccess(function (values) {
           console.log('form submitted')
+          drift.api.stageFormData(form);
           // drift.api.collectFormData('#mktoForm_1088', {
           //   campaignId: 2631295,
           //   followupUrl: 'https://dvalenciadrift.github.io/integrations/thankyou'
@@ -58,10 +59,6 @@
         });
       });
       document.getElementById('mktoForm_1088').addEventListener('submit', function (event) {
-          var form = event.target;
-          // Alternatively, you can pass your form's ID or the form data as an object
-          drift.api.stageFormData(form);
-        });
     </script> 
 
 
