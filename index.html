@@ -48,6 +48,21 @@ function OptanonWrapper() { }
 <body>
   <h1>Integrations</h1>
 
+  <script>
+    drift.on('ready', function (api) {
+      // drift.api.setUserAttributes({
+      //   gclid: new URLSearchParams(window.location.search).get('gclid')
+      // });
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      console.log('---URL---')
+      console.log(urlParams.get('custom_utm'))
+      drift.api.setUserAttributes({
+        custom_utm: urlParams.get('custom_utm')
+      });
+    });
+  </script>
+
 
   <!-- <script>
         // function to pull cookie value
@@ -110,7 +125,7 @@ function OptanonWrapper() {
       });
     </script> -->
 
-<!-- 
+  <!-- 
   <script>
 
     function driftLoader() {
