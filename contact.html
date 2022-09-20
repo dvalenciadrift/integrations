@@ -61,6 +61,11 @@
           // return false;
         });
       });
+      document.getElementById('mktoForm_1088').addEventListener('submit', function (event) {
+          var form = event.target;
+          // Alternatively, you can pass your form's ID or the form data as an object
+          drift.api.stageFormData(form);
+        });
     </script> 
 
 
