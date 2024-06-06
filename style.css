@@ -1,0 +1,10 @@
+#facadeContainer {
+    width: 30%;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+}
+
+#driftFacade {
+    width: 100%;
+}

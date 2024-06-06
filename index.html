@@ -2,69 +2,119 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Integrations</title>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Integrations 2</title>
 
-  <!-- Start of Async Drift Code -->
-  <script>
-    "use strict";
+	<!-- Start of Async Drift Code -->
+	<script>
+		"use strict";
 
-    !function () {
-      var t = window.driftt = window.drift = window.driftt || [];
-      if (!t.init) {
-        if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
-        t.invoked = !0, t.methods = ["identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on"],
-          t.factory = function (e) {
-            return function () {
-              var n = Array.prototype.slice.call(arguments);
-              return n.unshift(e), t.push(n), t;
-            };
-          }, t.methods.forEach(function (e) {
-            t[e] = t.factory(e);
-          }), t.load = function (t) {
-            var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
-            o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
-            var i = document.getElementsByTagName("script")[0];
-            i.parentNode.insertBefore(o, i);
-          };
-      }
-    }();
-    drift.SNIPPET_VERSION = '0.3.1';
-    drift.load('3vyrkmr4vcww');
-  </script>
-  <!-- End of Async Drift Code -->
+		!(function () {
+			var t = (window.driftt = window.drift = window.driftt || []);
+			if (!t.init) {
+				if (t.invoked)
+					return void (
+						window.console &&
+						console.error &&
+						console.error("Drift snippet included twice.")
+					);
+				(t.invoked = !0),
+					(t.methods = [
+						"identify",
+						"config",
+						"track",
+						"reset",
+						"debug",
+						"show",
+						"ping",
+						"page",
+						"hide",
+						"off",
+						"on",
+					]),
+					(t.factory = function (e) {
+						return function () {
+							var n = Array.prototype.slice.call(arguments);
+							return n.unshift(e), t.push(n), t;
+						};
+					}),
+					t.methods.forEach(function (e) {
+						t[e] = t.factory(e);
+					}),
+					(t.load = function (t) {
+						var e = 3e5,
+							n = Math.ceil(new Date() / e) * e,
+							o = document.createElement("script");
+						(o.type = "text/javascript"),
+							(o.async = !0),
+							(o.crossorigin = "anonymous"),
+							(o.src =
+								"https://js.driftt.com/include/" + n + "/" + t + ".js");
+						var i = document.getElementsByTagName("script")[0];
+						i.parentNode.insertBefore(o, i);
+					});
+			}
+		})();
+		drift.SNIPPET_VERSION = "0.3.1";
+		drift('config', {
+			iframeMode: true,
+			iframeSandbox: 'allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms'
+		})
+		drift.load("3vyrkmr4vcww");
+	</script>
+	<script>
+		window.drift.on("conversation:firstInteraction", function (data) {
+			drift.api.setUserAttributes({
+				recent_conversationId_string: data.conversationId.toString(),
+			});
+		});
+	</script>
+	<!-- End of Async Drift Code -->
 
-  <!-- CookiePro Cookies Consent Notice start for dvalenciadrift.github.io -->
+	<!-- CookiePro Cookies Consent Notice start for dvalenciadrift.github.io -->
 
-  <!-- <script src="https://cookie-cdn.cookiepro.com/scripttemplates/otSDKStub.js"  type="text/javascript" charset="UTF-8" data-domain-script="1748eab6-7ae2-417c-80b5-baca22f2bf6a" ></script>
+	<!-- <script src="https://cookie-cdn.cookiepro.com/scripttemplates/otSDKStub.js"  type="text/javascript" charset="UTF-8" data-domain-script="1748eab6-7ae2-417c-80b5-baca22f2bf6a" ></script>
 <script type="text/javascript">
 function OptanonWrapper() { }
 </script> -->
-  <!-- CookiePro Cookies Consent Notice end for dvalenciadrift.github.io -->
+	<!-- CookiePro Cookies Consent Notice end for dvalenciadrift.github.io -->
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-5BRZKTFKFS"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag("js", new Date());
+
+		gtag("config", "G-5BRZKTFKFS");
+	</script>
 </head>
 
 <body>
-  <h1>Integrations</h1>
+	<h1>Integrations</h1>
+	<a href="https://imperfect-crook.surge.sh/contact?utm_source=google&utm_campaign=directlink">CONTACT UTM</a>
 
-  <script>
-    drift.on('ready', function (api) {
-      // drift.api.setUserAttributes({
-      //   gclid: new URLSearchParams(window.location.search).get('gclid')
-      // });
-      const queryString = window.location.search;
-      const urlParams = new URLSearchParams(queryString);
-      console.log('---URL---')
-      console.log(urlParams.get('custom_utm'))
-      drift.api.setUserAttributes({
-        custom_utm: urlParams.get('custom_utm')
-      });
-    });
-  </script>
+	<a href="#leadbot-1ad0e4a0">Drift Link</a>
+	<script>
+		drift.on("ready", function (api) {
+			// drift.api.setUserAttributes({
+			//   gclid: new URLSearchParams(window.location.search).get('gclid')
+			// });
+			const queryString = window.location.search;
+			const urlParams = new URLSearchParams(queryString);
+			console.log("---URL---");
+			console.log(urlParams.get("custom_utm"));
+			drift.api.setUserAttributes({
+				custom_utm: urlParams.get("custom_utm"),
+			});
+		});
+	</script>
 
-
-  <!-- <script>
+	<!-- <script>
         // function to pull cookie value
 function getCookie(name) {
     var value = "; " + document.cookie;
@@ -102,8 +152,8 @@ function OptanonWrapper() {
 }
     </script> -->
 
-  <!--Tim load unload issue-->
-  <!-- <script>
+	<!--Tim load unload issue-->
+	<!-- <script>
       var unloaded = false;
       function driftLoader() {
           drift.load('kv8it8pexktt');
@@ -125,7 +175,7 @@ function OptanonWrapper() {
       });
     </script> -->
 
-  <!-- 
+	<!-- 
   <script>
 
     function driftLoader() {

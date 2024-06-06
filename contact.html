@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Integrations Marketo Form</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
 
   <!-- Start of Async Drift Code -->
   <script>
@@ -35,7 +36,15 @@
     drift.load('3vyrkmr4vcww');
   </script>
   <!-- End of Async Drift Code -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5BRZKTFKFS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-5BRZKTFKFS');
+</script>
 </head>
 
 <body>
@@ -59,13 +68,24 @@
     </script> 
 
 <h1>HTML Form Quick FL setup</h1>
-<form action="/action_page.php">
+<form id="fl-quick-setup" action="/action_page.php">
   <label for="fname">First name:</label><br>
-  <input type="text" id="fname" name="fname" value="John"><br>
+  <input type="text" id="fname" name="fname" value=""><br>
   <label for="email">Email:</label><br>
   <input type="email" id="email" name="Email" value=""><br><br>
-  <input type="submit" value="Submit">
+  <input id="submit" type="submit" value="Submit">
 </form> 
+<div id="facadeContainer">
+  <img src="drift_placeholder.png" id="driftFacade"/>
+</div>
+<script async src="https://cse.google.com/cse.js?cx=66524dc71509a4470">
+</script>
+<div class="gcse-search"></div>
+<script>
+  document.getElementById("submit").addEventListener("click", function(event){
+  event.preventDefault()
+});
+</script>
   </body>
 
 </html>

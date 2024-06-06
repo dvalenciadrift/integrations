@@ -1,0 +1,5055 @@
+{
+	"id": 2628856,
+	"name": "Test Engage All - David ",
+	"orgId": 5070832,
+	"status": "DISABLED",
+	"meta": {
+		"aiEnabled": true,
+		"featureSource": "audiences",
+		"clonedFrom": 2605617
+	},
+	"taskIdentifier": {
+		"version": 0,
+		"key": "2628856",
+		"group": "delay-playbook"
+	},
+	"priority": 9,
+	"reportType": "EMPTY_LEADBOT",
+	"createdAt": 1677698366284,
+	"updatedAt": 1677724428387,
+	"createdAuthorId": 5190594,
+	"updatedAuthorId": 5190594,
+	"actions": [
+		{
+			"id": 2624850,
+			"actionType": "INTERACTION",
+			"action": {
+				"slug": "ai-topics-template-vRLJA-c40285de",
+				"startingNodeId": null,
+				"questions": [],
+				"skills": [
+					{
+						"id": "_660ylzkur",
+						"type": "STATEMENT",
+						"configuration": {
+							"outputs": {
+								"default": {
+									"nodeId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f"
+								}
+							},
+							"statement": "<p>Welcome to Exclaimer! Our solutions let you centrally design and manage professional email signatures for every user in your organization. </p><p></p>"
+						}
+					},
+					{
+						"id": "_7q0itggow",
+						"type": "CONDITIONAL",
+						"configuration": {
+							"outputs": {
+								"default": {
+									"nodeId": "_u2s64v40v"
+								},
+								"_m59a5usjr": {
+									"nodeId": "_fh0w3b6wl"
+								}
+							},
+							"nodeConditionSetsCollection": [
+								{
+									"outputKey": "_m59a5usjr",
+									"label": "Support Team offline",
+									"priority": 1,
+									"isEmpty": false,
+									"conditionSets": [
+										[
+											{
+												"field": "teamAvailability",
+												"operator": "isNotAvailable",
+												"value": [
+													956271
+												],
+												"providerName": null
+											}
+										]
+									]
+								}
+							]
+						}
+					},
+					{
+						"id": "_u2s64v40v",
+						"type": "STATEMENT",
+						"configuration": {
+							"outputs": {
+								"default": {
+									"nodeId": "_6b463ltof"
+								}
+							},
+							"statement": "<p>Okay, please give us a moment while we transfer you to our support team...</p>"
+						}
+					},
+					{
+						"id": "_6b463ltof",
+						"type": "END_OF_CONVERSATION",
+						"configuration": {
+							"outputs": {},
+							"endOfConversationConfig": {
+								"endOfConversationType": "AUTOCLOSE",
+								"messageText": null,
+								"label": null
+							}
+						}
+					},
+					{
+						"id": "_fh0w3b6wl",
+						"type": "CREATE_TICKET",
+						"configuration": {
+							"outputs": {
+								"success": {
+									"nodeId": "d564f55a-c2cd-4857-bc53-e40017e87406"
+								},
+								"failure": {
+									"nodeId": "_fh0w3b6wl"
+								}
+							},
+							"prompt": "<p>Please share a short description of your issue or question and our team will get back to you.</p>",
+							"groupId": null,
+							"salesforceCaseStatus": null,
+							"ticketAttributes": {},
+							"emailCaptureAttemptLimit": 3,
+							"askForEmailAddress": "First things first - what's your email address?",
+							"askForEmailAddressAgain": "Sorry, I didn't quite get that. What's your email address? (I need it to create a ticket)",
+							"validEmail": "Got it, thanks!",
+							"invalidEmail": "Unfortunately I can't create a ticket without an email address.",
+							"askForUpdatedTicketSubject": "Ok, what would you like to update the ticket subject to?",
+							"askIfAnythingToAdd": "Ok, we'll create a ticket with \"%s\". Anything else to add?",
+							"askForInitialTicketSubject": "Please share a short description of your issue or question",
+							"soundsGoodAnythingElse": "Sounds good! Anything else?",
+							"okWhatElse": "Ok, what else?",
+							"ticketCreationSuccess": "Ok great! I created a ticket for this. Someone will get back to you at %s",
+							"positiveResponse": "Yes",
+							"negativeResponse": "No",
+							"changeTheTicketSubject": "Change the ticket subject",
+							"sorryIDidNotCatchThat": "Sorry, I didn't catch that",
+							"binaryDecisions": {
+								"buttons": [
+									{
+										"label": "Yes",
+										"value": "Yes"
+									},
+									{
+										"label": "No",
+										"value": "No"
+									}
+								],
+								"isButtonOnly": true,
+								"isHelpFlow": true
+							},
+							"ticketDecisions": {
+								"buttons": [
+									{
+										"label": "Yes",
+										"value": "Yes"
+									},
+									{
+										"label": "No",
+										"value": "No"
+									},
+									{
+										"label": "Change the ticket subject",
+										"value": "Change the ticket subject"
+									}
+								],
+								"isButtonOnly": true,
+								"isHelpFlow": true
+							}
+						}
+					},
+					{
+						"id": "_6lbpfb6vq",
+						"type": "CONDITIONAL",
+						"configuration": {
+							"outputs": {
+								"default": {
+									"nodeId": "a37360ad-4b74-4861-bc8a-1a7c2ada4c00"
+								},
+								"_gjs80mxlg": {
+									"nodeId": "_sh3ho3q0p"
+								}
+							},
+							"nodeConditionSetsCollection": [
+								{
+									"outputKey": "_gjs80mxlg",
+									"label": "first name known",
+									"priority": 1,
+									"isEmpty": false,
+									"conditionSets": [
+										[
+											{
+												"field": "contactSegment_endUserAttribute",
+												"operator": "notIntersectionEmpty",
+												"value": [
+													1096123
+												],
+												"providerName": "contactSegment"
+											}
+										]
+									]
+								}
+							]
+						}
+					},
+					{
+						"id": "_sh3ho3q0p",
+						"type": "CONDITIONAL",
+						"configuration": {
+							"outputs": {
+								"default": {
+									"nodeId": "c27166cf-1c20-40d0-b0aa-2ada488c2132"
+								},
+								"_rq4txcbse": {
+									"nodeId": "_n90ukc4ee"
+								}
+							},
+							"nodeConditionSetsCollection": [
+								{
+									"outputKey": "_rq4txcbse",
+									"label": "last name known",
+									"priority": 1,
+									"isEmpty": false,
+									"conditionSets": [
+										[
+											{
+												"field": "contactSegment_endUserAttribute",
+												"operator": "notIntersectionEmpty",
+												"value": [
+													1096124
+												],
+												"providerName": "contactSegment"
+											}
+										]
+									]
+								}
+							]
+						}
+					},
+					{
+						"id": "_n90ukc4ee",
+						"type": "CONDITIONAL",
+						"configuration": {
+							"outputs": {
+								"default": {
+									"nodeId": "_xcuwrrm80"
+								},
+								"_nelty125q": {
+									"nodeId": "_0leg5ms7s"
+								}
+							},
+							"nodeConditionSetsCollection": [
+								{
+									"outputKey": "_nelty125q",
+									"label": "company name is known",
+									"priority": 1,
+									"isEmpty": false,
+									"conditionSets": [
+										[
+											{
+												"field": "contactSegment_endUserAttribute",
+												"operator": "notIntersectionEmpty",
+												"value": [
+													1096125
+												],
+												"providerName": "contactSegment"
+											}
+										]
+									]
+								}
+							]
+						}
+					},
+					{
+						"id": "_oe7vgz9g0",
+						"type": "CONDITIONAL",
+						"configuration": {
+							"outputs": {
+								"_ivgymnitw": {
+									"nodeId": "_2rkwhzgws"
+								},
+								"default": {
+									"nodeId": "_13uwspm9k"
+								}
+							},
+							"nodeConditionSetsCollection": [
+								{
+									"outputKey": "_ivgymnitw",
+									"label": "Number of employees",
+									"priority": 1,
+									"isEmpty": false,
+									"conditionSets": [
+										[
+											{
+												"field": "clearbit_employees",
+												"operator": "greaterThan",
+												"value": "50",
+												"providerName": "clearbit"
+											}
+										]
+									]
+								}
+							]
+						}
+					},
+					{
+						"id": "0a5aaedf-9e8f-43fa-93a5-e81041332f7c",
+						"type": "ROUTING",
+						"configuration": {
+							"outputs": {
+								"default": {
+									"nodeId": "_xfq4rcsse"
+								}
+							},
+							"primaryRoutingConfig": {
+								"type": "GLOBAL",
+								"userId": null,
+								"userIds": null,
+								"teamId": null,
+								"possibleRuleIds": null,
+								"rerouteEnabled": true,
+								"isExecute": true,
+								"routeToOnlineAgentsOnly": true
+							},
+							"fallback": null,
+							"scheduledRouting": false
+						}
+					},
+					{
+						"id": "_xfq4rcsse",
+						"type": "END_OF_CONVERSATION",
+						"configuration": {
+							"outputs": {},
+							"endOfConversationConfig": {
+								"endOfConversationType": "OPEN",
+								"messageText": "",
+								"label": null
+							}
+						}
+					},
+					{
+						"id": "_cfj3lgryt",
+						"type": "SCHEDULING",
+						"configuration": {
+							"outputs": {
+								"default": {
+									"nodeId": "_ujuioet4a"
+								}
+							},
+							"primaryRoutingConfig": {
+								"type": "GLOBAL",
+								"userId": null,
+								"userIds": null,
+								"teamId": null,
+								"possibleRuleIds": null,
+								"rerouteEnabled": true,
+								"isExecute": true,
+								"routeToOnlineAgentsOnly": true
+							},
+							"whenToRoute": "ROUTE_FIRST_THEN_CONVO_PARTICIPANTS",
+							"includeMeetingNotes": false,
+							"meetingTypeSlug": null,
+							"meetingSchedulerPrompt": "Pick a time on #(agentName)'s calendar here",
+							"meetingSchedulerPromptWithNoUsers": "You can grab a time here:",
+							"meetingConfirmationMessage": "All set! I've sent an email confirmation to #(endUserEmail)",
+							"meetingNotesStartQuestion": "Would you like to leave notes for this meeting?",
+							"meetingNotesDeclineConfirmation": "Ok",
+							"meetingNotesPrompt": "Leave any notes you'd like #(agentName) to read here!",
+							"meetingNotesDoneQuestion": "Great! Anything else?",
+							"emailCaptureConfiguration": {
+								"outputs": {
+									"success": {
+										"nodeId": "46291d7a-8cee-4999-9082-2269c48a0e2d"
+									},
+									"failure": {
+										"nodeId": "7f8032bd-b416-4554-9251-5b90700705ba"
+									}
+								},
+								"numberOfAttempts": 3,
+								"startingPrompt": "What email address should I send this meeting invite to?",
+								"repeatPrompt": "Sorry, I didn't quite get that. What's your email address?",
+								"successfulCaptureConfirmation": "Ok thanks!",
+								"failedCaptureConfirmation": "Ah, it's alright if you're not ready to schedule a meeting quite yet",
+								"businessEmailsOnly": false,
+								"businessEmailPrompt": null
+							},
+							"defaultAgentName": "this person"
+						}
+					},
+					{
+						"id": "_ujuioet4a",
+						"type": "END_OF_CONVERSATION",
+						"configuration": {
+							"outputs": {},
+							"endOfConversationConfig": {
+								"endOfConversationType": "PERMACLOSE",
+								"messageText": "<p>We look forward to speaking with you soon!</p>",
+								"label": null
+							}
+						}
+					},
+					{
+						"id": "_13uwspm9k",
+						"type": "STATEMENT",
+						"configuration": {
+							"outputs": {
+								"default": {
+									"nodeId": "_ujb2ufl9g"
+								}
+							},
+							"statement": "<p>Thanks for sharing your details! Let's get your demo booked!</p>"
+						}
+					},
+					{
+						"id": "_ujb2ufl9g",
+						"type": "SCHEDULING",
+						"configuration": {
+							"outputs": {
+								"default": {
+									"nodeId": "_xd75d3n5r"
+								}
+							},
+							"primaryRoutingConfig": {
+								"type": "GLOBAL",
+								"userId": null,
+								"userIds": null,
+								"teamId": null,
+								"possibleRuleIds": null,
+								"rerouteEnabled": true,
+								"isExecute": true,
+								"routeToOnlineAgentsOnly": true
+							},
+							"whenToRoute": "ROUTE_FIRST_THEN_CONVO_PARTICIPANTS",
+							"includeMeetingNotes": false,
+							"meetingTypeSlug": null,
+							"meetingSchedulerPrompt": "Pick a time on #(agentName)'s calendar here",
+							"meetingSchedulerPromptWithNoUsers": "You can grab a time here:",
+							"meetingConfirmationMessage": "All set! I've sent an email confirmation to #(endUserEmail)",
+							"meetingNotesStartQuestion": "Would you like to leave notes for this meeting?",
+							"meetingNotesDeclineConfirmation": "Ok",
+							"meetingNotesPrompt": "Leave any notes you'd like #(agentName) to read here!",
+							"meetingNotesDoneQuestion": "Great! Anything else?",
+							"emailCaptureConfiguration": {
+								"outputs": {
+									"success": {
+										"nodeId": "8fcfbfd1-9115-41b1-bcc8-8e56ae33851f"
+									},
+									"failure": {
+										"nodeId": "68f3398c-a234-4a21-9d82-a286286434b5"
+									}
+								},
+								"numberOfAttempts": 3,
+								"startingPrompt": "What email address should I send this meeting invite to?",
+								"repeatPrompt": "Sorry, I didn't quite get that. What's your email address?",
+								"successfulCaptureConfirmation": "Ok thanks!",
+								"failedCaptureConfirmation": "Ah, it's alright if you're not ready to schedule a meeting quite yet",
+								"businessEmailsOnly": false,
+								"businessEmailPrompt": null
+							},
+							"defaultAgentName": "this person"
+						}
+					},
+					{
+						"id": "_xd75d3n5r",
+						"type": "END_OF_CONVERSATION",
+						"configuration": {
+							"outputs": {},
+							"endOfConversationConfig": {
+								"endOfConversationType": "PERMACLOSE",
+								"messageText": "<p>We look forward to speaking with you soon!</p>",
+								"label": null
+							}
+						}
+					},
+					{
+						"id": "_0leg5ms7s",
+						"type": "CONDITIONAL",
+						"configuration": {
+							"outputs": {
+								"default": {
+									"nodeId": "_aekgt6g4d"
+								},
+								"_squbn39lj": {
+									"nodeId": "_oe7vgz9g0"
+								}
+							},
+							"nodeConditionSetsCollection": [
+								{
+									"outputKey": "_squbn39lj",
+									"label": "Job title known",
+									"priority": 1,
+									"isEmpty": false,
+									"conditionSets": [
+										[
+											{
+												"field": "contactSegment_endUserAttribute",
+												"operator": "notIntersectionEmpty",
+												"value": [
+													1096136
+												],
+												"providerName": "contactSegment"
+											}
+										]
+									]
+								}
+							]
+						}
+					},
+					{
+						"id": "_sr0hh1j1u",
+						"type": "END_OF_CONVERSATION",
+						"configuration": {
+							"outputs": {},
+							"endOfConversationConfig": {
+								"endOfConversationType": "AUTOCLOSE",
+								"messageText": null,
+								"label": null
+							}
+						}
+					},
+					{
+						"id": "_u328gm736",
+						"type": "END_OF_CONVERSATION",
+						"configuration": {
+							"outputs": {},
+							"endOfConversationConfig": {
+								"endOfConversationType": "AUTOCLOSE",
+								"messageText": null,
+								"label": null
+							}
+						}
+					},
+					{
+						"id": "_kimzrs9ql",
+						"type": "END_OF_CONVERSATION",
+						"configuration": {
+							"outputs": {},
+							"endOfConversationConfig": {
+								"endOfConversationType": "PERMACLOSE",
+								"messageText": "<p>Thank you for chatting with us today!</p>",
+								"label": null
+							}
+						}
+					},
+					{
+						"id": "_3xejxor6e",
+						"type": "STATEMENT",
+						"configuration": {
+							"outputs": {
+								"default": {
+									"nodeId": "_8f283o1yf"
+								}
+							},
+							"statement": "<p>Okay! Which team would you like to speak with?</p>"
+						}
+					},
+					{
+						"id": "_h731ex27w",
+						"type": "CONDITIONAL",
+						"configuration": {
+							"outputs": {
+								"default": {
+									"nodeId": "_0rxf1aix5"
+								},
+								"_joonsm1hy": {
+									"nodeId": "_66mab57tc"
+								}
+							},
+							"nodeConditionSetsCollection": [
+								{
+									"outputKey": "_joonsm1hy",
+									"label": "first name is known",
+									"priority": 1,
+									"isEmpty": false,
+									"conditionSets": [
+										[
+											{
+												"field": "contactSegment_endUserAttribute",
+												"operator": "notIntersectionEmpty",
+												"value": [
+													1099760
+												],
+												"providerName": "contactSegment"
+											}
+										]
+									]
+								}
+							]
+						}
+					},
+					{
+						"id": "_66mab57tc",
+						"type": "CONDITIONAL",
+						"configuration": {
+							"outputs": {
+								"default": {
+									"nodeId": "_p4ex0a1i1"
+								},
+								"_e5dvfpwxg": {
+									"nodeId": "_cm4oll65v"
+								}
+							},
+							"nodeConditionSetsCollection": [
+								{
+									"outputKey": "_e5dvfpwxg",
+									"label": "last name is known",
+									"priority": 1,
+									"isEmpty": false,
+									"conditionSets": [
+										[
+											{
+												"field": "contactSegment_endUserAttribute",
+												"operator": "notIntersectionEmpty",
+												"value": [
+													1099761
+												],
+												"providerName": "contactSegment"
+											}
+										]
+									]
+								}
+							]
+						}
+					},
+					{
+						"id": "_cm4oll65v",
+						"type": "CONDITIONAL",
+						"configuration": {
+							"outputs": {
+								"default": {
+									"nodeId": "_wgmwq6ceo"
+								},
+								"_bqqhk9lkl": {
+									"nodeId": "_c70ebsvtw"
+								}
+							},
+							"nodeConditionSetsCollection": [
+								{
+									"outputKey": "_bqqhk9lkl",
+									"label": "company name is known",
+									"priority": 1,
+									"isEmpty": false,
+									"conditionSets": [
+										[
+											{
+												"field": "contactSegment_endUserAttribute",
+												"operator": "notIntersectionEmpty",
+												"value": [
+													1099762
+												],
+												"providerName": "contactSegment"
+											}
+										]
+									]
+								}
+							]
+						}
+					},
+					{
+						"id": "_ih5gxuafi",
+						"type": "END_OF_CONVERSATION",
+						"configuration": {
+							"outputs": {},
+							"endOfConversationConfig": {
+								"endOfConversationType": "AUTOCLOSE",
+								"messageText": null,
+								"label": null
+							}
+						}
+					},
+					{
+						"id": "_c70ebsvtw",
+						"type": "CREATE_TICKET",
+						"configuration": {
+							"outputs": {
+								"success": {
+									"nodeId": "0d0aa8a5-15d3-4d61-9120-aab303e91018"
+								},
+								"failure": {
+									"nodeId": "_c70ebsvtw"
+								}
+							},
+							"prompt": "<p>Please share a short description of your issue or question.</p>",
+							"groupId": null,
+							"salesforceCaseStatus": null,
+							"ticketAttributes": {},
+							"emailCaptureAttemptLimit": 3,
+							"askForEmailAddress": "First things first - what's your email address?",
+							"askForEmailAddressAgain": "Sorry, I didn't quite get that. What's your email address? (I need it to create a ticket)",
+							"validEmail": "Got it, thanks!",
+							"invalidEmail": "Unfortunately I can't create a ticket without an email address.",
+							"askForUpdatedTicketSubject": "Ok, what would you like to update the ticket subject to?",
+							"askIfAnythingToAdd": "Ok, we'll create a ticket with \"%s\". Anything else to add?",
+							"askForInitialTicketSubject": "Please share a short description of your issue or question",
+							"soundsGoodAnythingElse": "Sounds good! Anything else?",
+							"okWhatElse": "Ok, what else?",
+							"ticketCreationSuccess": "Ok great! I created a ticket for this. Someone will get back to you at %s",
+							"positiveResponse": "Yes",
+							"negativeResponse": "No",
+							"changeTheTicketSubject": "Change the ticket subject",
+							"sorryIDidNotCatchThat": "Sorry, I didn't catch that",
+							"binaryDecisions": {
+								"buttons": [
+									{
+										"label": "Yes",
+										"value": "Yes"
+									},
+									{
+										"label": "No",
+										"value": "No"
+									}
+								],
+								"isButtonOnly": true,
+								"isHelpFlow": true
+							},
+							"ticketDecisions": {
+								"buttons": [
+									{
+										"label": "Yes",
+										"value": "Yes"
+									},
+									{
+										"label": "No",
+										"value": "No"
+									},
+									{
+										"label": "Change the ticket subject",
+										"value": "Change the ticket subject"
+									}
+								],
+								"isButtonOnly": true,
+								"isHelpFlow": true
+							}
+						}
+					},
+					{
+						"id": "_webhook",
+						"type": "WEBHOOK",
+						"configuration": {
+							"outputs": {
+								"success": {
+									"nodeId": "_6v283gvht"
+								},
+								"failure": {
+									"nodeId": "_webhook"
+								}
+							},
+							"requestInjectors": {
+								"query": {
+									"expression": "0",
+									"type": "END_USER_MESSAGE"
+								}
+							},
+							"postHookErrorMessageTemplate": "Something went wrong, sorry about that!",
+							"postHookMessageTemplate": "Result:<br/><a href={{url0}}>{{ searchResult0 }}</a><br/><a href={{url1}}>{{ searchResult1 }}</a><br/><a href={{url2}}>{{ searchResult2 }}</a>",
+							"definition": {
+								"method": "GET",
+								"urlTemplate": "https://support.exclaimer.com/api/v2/help_center/articles/search.json?query={{query|urlencode}}"
+							},
+							"type": "DYNAMIC",
+							"responseExtractors": {
+								"searchResult0": {
+									"type": "JSONPATH",
+									"expression": "$.results[0].title"
+								},
+								"url0": {
+									"type": "JSONPATH",
+									"expression": "$.results[0].html_url"
+								},
+								"searchResult1": {
+									"type": "JSONPATH",
+									"expression": "$.results[1].title"
+								},
+								"url1": {
+									"type": "JSONPATH",
+									"expression": "$.results[0].html_url"
+								},
+								"searchResult2": {
+									"type": "JSONPATH",
+									"expression": "$.results[2].title"
+								},
+								"url2": {
+									"type": "JSONPATH",
+									"expression": "$[.results0].html_url"
+								}
+							},
+							"preHookMessageTemplate": ""
+						}
+					},
+					{
+						"id": "_pl4j5yagt",
+						"type": "QUESTION",
+						"configuration": {
+							"outputs": {
+								"default": {
+									"nodeId": "_webhook"
+								},
+								"182e2cc2-5055-32c9-a4e6-eb32b710b9bb": {
+									"nodeId": "_webhook"
+								}
+							},
+							"prompt": "<p>Please tell me the problem you are having, I may be able to help?</p>",
+							"defaultAnswer": null,
+							"defaultResponse": {
+								"response": "",
+								"outputKey": "default",
+								"actionGroup": null,
+								"actionGroupConfiguration": null,
+								"hasAnythingSet": false
+							},
+							"defaultAnswerId": null,
+							"answers": [
+								{
+									"type": "AI_DEFAULT",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "182e2cc2-5055-32c9-a4e6-eb32b710b9bb",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_jkjnvdhoh",
+									"questionId": "_pl4j5yagt",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								}
+							],
+							"isButtonOnly": false,
+							"isDropdown": false,
+							"fieldConfiguration": null,
+							"isCaptureQuestion": false
+						}
+					},
+					{
+						"id": "_46q2v7103",
+						"type": "END_OF_CONVERSATION",
+						"configuration": {
+							"outputs": {},
+							"endOfConversationConfig": {
+								"endOfConversationType": "AUTOCLOSE",
+								"messageText": null,
+								"label": null
+							}
+						}
+					},
+					{
+						"id": "_jl9acisgp",
+						"type": "CREATE_TICKET",
+						"configuration": {
+							"outputs": {
+								"success": {
+									"nodeId": "_go2z1ukxv"
+								},
+								"failure": {
+									"nodeId": "_jl9acisgp"
+								}
+							},
+							"prompt": "<p>Please share a short description of your issue or question.</p>",
+							"groupId": null,
+							"salesforceCaseStatus": null,
+							"ticketAttributes": {},
+							"emailCaptureAttemptLimit": 3,
+							"askForEmailAddress": "First things first - what's your email address?",
+							"askForEmailAddressAgain": "Sorry, I didn't quite get that. What's your email address? (I need it to create a ticket)",
+							"validEmail": "Got it, thanks!",
+							"invalidEmail": "Unfortunately I can't create a ticket without an email address.",
+							"askForUpdatedTicketSubject": "Ok, what would you like to update the ticket subject to?",
+							"askIfAnythingToAdd": "Ok, we'll create a ticket with \"%s\". Anything else to add?",
+							"askForInitialTicketSubject": "Please share a short description of your issue or question",
+							"soundsGoodAnythingElse": "Sounds good! Anything else?",
+							"okWhatElse": "Ok, what else?",
+							"ticketCreationSuccess": "Ok great! I created a ticket for this. Someone will get back to you at %s",
+							"positiveResponse": "Yes",
+							"negativeResponse": "No",
+							"changeTheTicketSubject": "Change the ticket subject",
+							"sorryIDidNotCatchThat": "Sorry, I didn't catch that",
+							"binaryDecisions": {
+								"buttons": [
+									{
+										"label": "Yes",
+										"value": "Yes"
+									},
+									{
+										"label": "No",
+										"value": "No"
+									}
+								],
+								"isButtonOnly": true,
+								"isHelpFlow": true
+							},
+							"ticketDecisions": {
+								"buttons": [
+									{
+										"label": "Yes",
+										"value": "Yes"
+									},
+									{
+										"label": "No",
+										"value": "No"
+									},
+									{
+										"label": "Change the ticket subject",
+										"value": "Change the ticket subject"
+									}
+								],
+								"isButtonOnly": true,
+								"isHelpFlow": true
+							}
+						}
+					},
+					{
+						"id": "_qiwk8yqkd",
+						"type": "END_OF_CONVERSATION",
+						"configuration": {
+							"outputs": {},
+							"endOfConversationConfig": {
+								"endOfConversationType": "AUTOCLOSE",
+								"messageText": null,
+								"label": null
+							}
+						}
+					},
+					{
+						"id": "_90njd4a4d",
+						"type": "END_OF_CONVERSATION",
+						"configuration": {
+							"outputs": {},
+							"endOfConversationConfig": {
+								"endOfConversationType": "PERMACLOSE",
+								"messageText": "<p>Thank you for visiting Exclaimer today!</p>",
+								"label": null
+							}
+						}
+					},
+					{
+						"id": "_3u8nfypmk",
+						"type": "END_OF_CONVERSATION",
+						"configuration": {
+							"outputs": {},
+							"endOfConversationConfig": {
+								"endOfConversationType": "AUTOCLOSE",
+								"messageText": null,
+								"label": null
+							}
+						}
+					},
+					{
+						"id": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+						"type": "QUESTION",
+						"configuration": {
+							"outputs": {
+								"4dee1125-03be-3569-b05b-8440c9bdf859": {
+									"nodeId": "_vdb37kcw3"
+								},
+								"0d1f7684-d858-34f7-8404-491f770ee67f": {
+									"nodeId": "744138f0-b09c-40ea-89ce-ad33fc043c4d"
+								},
+								"b95375a5-137d-3e7b-993a-6b71a6d389d1": {
+									"nodeId": "_ab7u16jjg"
+								},
+								"93aa0b67-8e27-3d0a-aa77-be299df800a8": {
+									"nodeId": "744138f0-b09c-40ea-89ce-ad33fc043c4d"
+								},
+								"a806c99d-c61c-33e0-9e3a-fa27fde1911e": {
+									"nodeId": "dc1834c5-5fb1-4832-94a5-15bd073f492a"
+								},
+								"d461dbf7-915a-3d84-89f4-a19e122c2917": {
+									"nodeId": "dc1834c5-5fb1-4832-94a5-15bd073f492a"
+								},
+								"ee68748a-c387-3732-aa4b-d6a4a966a4dc": {
+									"nodeId": "_kkxxzdq0c"
+								},
+								"804506d6-77fb-3198-80d0-dfd71f394b53": {
+									"nodeId": "744138f0-b09c-40ea-89ce-ad33fc043c4d"
+								},
+								"acc957f4-a45c-309f-915d-ac6a2ea42eeb": {
+									"nodeId": "744138f0-b09c-40ea-89ce-ad33fc043c4d"
+								},
+								"f13e12e5-ea26-3857-b7e3-f66f58252b5a": {
+									"nodeId": "_ab7u16jjg"
+								},
+								"6fe523c1-ecd4-3fa0-bbde-7037187841ea": {
+									"nodeId": "_ab7u16jjg"
+								},
+								"ea385735-63bc-3cf6-9942-695247e51e0d": {
+									"nodeId": "_ab7u16jjg"
+								},
+								"6bd8aa8f-110c-321e-a53c-ca2c576a1ff1": {
+									"nodeId": "_ab7u16jjg"
+								},
+								"0584649d-98bf-33e4-b0e0-d0febdeee0cf": {
+									"nodeId": "_kkxxzdq0c"
+								},
+								"d3fd9ad5-5082-3684-b75b-3ac9814e9483": {
+									"nodeId": "_ab7u16jjg"
+								},
+								"4a592031-9d8f-31ff-a3c9-ab6cf7c5dc5f": {
+									"nodeId": "_ab7u16jjg"
+								},
+								"280bf860-8f44-3d7f-b0bc-13a76985bbff": {
+									"nodeId": "_kkxxzdq0c"
+								},
+								"189f57ea-caa3-3276-9743-974d3f512dca": {
+									"nodeId": "744138f0-b09c-40ea-89ce-ad33fc043c4d"
+								},
+								"c11c9834-e79e-3dd1-a3f8-a2af3ed9710b": {
+									"nodeId": "_ab7u16jjg"
+								},
+								"095852d4-45d8-326d-94a8-53229de66a7c": {
+									"nodeId": "744138f0-b09c-40ea-89ce-ad33fc043c4d"
+								},
+								"d84276cb-862c-37ec-9ca1-50f35d7b1653": {
+									"nodeId": "dc1834c5-5fb1-4832-94a5-15bd073f492a"
+								},
+								"339c5826-211e-3016-98c0-f02ca365135a": {
+									"nodeId": "_ab7u16jjg"
+								},
+								"a05370e8-b4b2-3345-9349-52a3c2f7b94a": {
+									"nodeId": "_ab7u16jjg"
+								},
+								"a6ee1585-6bbe-3392-85dc-e66eee99fafa": {
+									"nodeId": "dc1834c5-5fb1-4832-94a5-15bd073f492a"
+								},
+								"8f3edfca-b5be-3384-ac59-3fbbd37294ca": {
+									"nodeId": "dc1834c5-5fb1-4832-94a5-15bd073f492a"
+								},
+								"6d51785d-0bd8-3ec8-b200-06927b5c7465": {
+									"nodeId": "_ab7u16jjg"
+								},
+								"e0b06aad-8d31-3c89-928a-d337882b2c85": {
+									"nodeId": "744138f0-b09c-40ea-89ce-ad33fc043c4d"
+								},
+								"213787eb-905d-3d09-884a-50d12380926e": {
+									"nodeId": "_8f283o1yf"
+								},
+								"5d5d0ae8-066a-30a3-a5ed-28257f9322f5": {
+									"nodeId": "_ab7u16jjg"
+								},
+								"9a9e3917-3f54-3cdd-b4bd-a45d003ccaa0": {
+									"nodeId": "744138f0-b09c-40ea-89ce-ad33fc043c4d"
+								},
+								"7f64a180-207d-3513-bfab-8b0cd56558c6": {
+									"nodeId": "744138f0-b09c-40ea-89ce-ad33fc043c4d"
+								},
+								"30fed5c7-0fe3-3494-9c75-a50bf8693856": {
+									"nodeId": "dc1834c5-5fb1-4832-94a5-15bd073f492a"
+								},
+								"84f116e4-e1b5-3d83-b648-0ed26204a4d0": {
+									"nodeId": "744138f0-b09c-40ea-89ce-ad33fc043c4d"
+								},
+								"a6f71982-79e4-305f-a5f5-b6a7eaf8b897": {
+									"nodeId": "_webhook"
+								},
+								"0966b969-bcf2-39c0-86b0-db5f725243a5": {
+									"nodeId": "_ab7u16jjg"
+								},
+								"5eee59c9-61ce-3121-bcd5-25cad904fa1d": {
+									"nodeId": "dc1834c5-5fb1-4832-94a5-15bd073f492a"
+								},
+								"d2bf546a-4095-369c-8fd5-c637b555efe1": {
+									"nodeId": "_ab7u16jjg"
+								},
+								"8cac98ac-b520-3511-9d2b-081b97196620": {
+									"nodeId": "_ab7u16jjg"
+								},
+								"296a13b1-6a24-3095-a2b3-3f0a885f3d59": {
+									"nodeId": "_jl9acisgp"
+								},
+								"054c6801-4ba1-3f9d-a455-cce57647b8cd": {
+									"nodeId": "_ab7u16jjg"
+								},
+								"a69b6319-bf3e-34c9-a094-09816f856ba0": {
+									"nodeId": "744138f0-b09c-40ea-89ce-ad33fc043c4d"
+								},
+								"733dc2aa-9528-32e0-9abc-6be448bb8c6a": {
+									"nodeId": "_jl9acisgp"
+								},
+								"a477c6be-992e-312c-b8d9-ddf1366f87eb": {
+									"nodeId": "_kkxxzdq0c"
+								},
+								"7ba5c6d9-90b0-3fd5-8897-a1f2d35fd351": {
+									"nodeId": "_ab7u16jjg"
+								},
+								"0571a1f9-8d9f-3a11-8e5c-b6b3f6590976": {
+									"nodeId": "744138f0-b09c-40ea-89ce-ad33fc043c4d"
+								},
+								"4bec9bb3-176e-3588-87dd-7c442ef6853b": {
+									"nodeId": "_ab7u16jjg"
+								},
+								"bf6db509-b9ac-3593-99dd-3fc4320a4f4f": {
+									"nodeId": "_kkxxzdq0c"
+								},
+								"96c9d1cd-1de5-3c8d-9d2d-864dd6939b61": {
+									"nodeId": "_ab7u16jjg"
+								},
+								"d8d1183c-5980-3b7d-8125-9197baedab89": {
+									"nodeId": "744138f0-b09c-40ea-89ce-ad33fc043c4d"
+								},
+								"19eef842-4f96-3163-8365-62f591d176e2": {
+									"nodeId": "744138f0-b09c-40ea-89ce-ad33fc043c4d"
+								},
+								"2382ebb7-fdc0-3a20-8995-636bd1ab1e89": {
+									"nodeId": "_webhook"
+								},
+								"90014775-6282-390b-8bf0-ce8e248eb05b": {
+									"nodeId": "744138f0-b09c-40ea-89ce-ad33fc043c4d"
+								},
+								"d840e4fc-323d-373a-a341-c3fe5f7205ac": {
+									"nodeId": "_ab7u16jjg"
+								},
+								"5e984226-e821-3467-9e46-dee6b67487ae": {
+									"nodeId": "_ab7u16jjg"
+								},
+								"2ca736b0-e36f-3009-bcb6-24e0071b6d9a": {
+									"nodeId": "dc1834c5-5fb1-4832-94a5-15bd073f492a"
+								},
+								"e843a226-61c5-32ff-81ec-ffcff10ef3d5": {
+									"nodeId": "_kkxxzdq0c"
+								},
+								"6e03a200-8fee-3606-9b7c-24931c079264": {
+									"nodeId": "_ab7u16jjg"
+								},
+								"ea5fe104-78f2-331d-b664-307bbeef522a": {
+									"nodeId": "_go2z1ukxv"
+								},
+								"a888361c-e797-39b2-ae4c-bb40ebfb3dd5": {
+									"nodeId": "_ab7u16jjg"
+								},
+								"7f68bc39-5b52-3fae-a6f8-edbc61fb87d7": {
+									"nodeId": "_ab7u16jjg"
+								},
+								"f04e87de-5145-30e7-a067-c941bea0a7d9": {
+									"nodeId": "_ab7u16jjg"
+								},
+								"c312aaca-7ae5-3b56-b1af-3d190d20282d": {
+									"nodeId": "_jl9acisgp"
+								},
+								"74981349-bc76-3a6a-a50a-a2b79716b4e3": {
+									"nodeId": "_jl9acisgp"
+								},
+								"4c58e98e-352b-3aa2-91d6-40e253e864dd": {
+									"nodeId": "_ab7u16jjg"
+								},
+								"102c85f9-ada3-3ef8-89f4-05e8e1c377fb": {
+									"nodeId": "744138f0-b09c-40ea-89ce-ad33fc043c4d"
+								},
+								"9e6c052d-1003-3250-9eaa-db4b25e3a75f": {
+									"nodeId": "744138f0-b09c-40ea-89ce-ad33fc043c4d"
+								},
+								"07a2d6b7-e990-3580-8529-51c50ef732bc": {
+									"nodeId": "744138f0-b09c-40ea-89ce-ad33fc043c4d"
+								},
+								"7621a0f1-3de7-3f2f-b611-a6df30081ae0": {
+									"nodeId": "_jl9acisgp"
+								},
+								"e1cf8c59-06dc-36c7-a202-f041e31a8aea": {
+									"nodeId": "_ab7u16jjg"
+								},
+								"f861f276-2358-39ed-831d-b857e2410f84": {
+									"nodeId": "_jl9acisgp"
+								},
+								"b159cda2-40d7-3c7b-9dd3-a62aef00ba01": {
+									"nodeId": "_ab7u16jjg"
+								},
+								"f27cc928-1abd-3185-aa6d-bd521be1a717": {
+									"nodeId": "_ab7u16jjg"
+								},
+								"default": {
+									"nodeId": "_go2z1ukxv"
+								},
+								"66c00eba-8f70-375c-b896-009dbc9e9127": {
+									"nodeId": "_ab7u16jjg"
+								},
+								"80b63d3a-4974-3cfd-895f-13f5cf636136": {
+									"nodeId": "_ab7u16jjg"
+								},
+								"73f3b7c1-52b1-35d8-8eb8-1ea4cd76e0dd": {
+									"nodeId": "_ab7u16jjg"
+								},
+								"7a8d9159-9a53-3055-81ee-b99d29fdd445": {
+									"nodeId": "_ab7u16jjg"
+								},
+								"c29ca44c-e59c-3c75-89b6-d1b69228d425": {
+									"nodeId": "_ab7u16jjg"
+								},
+								"4ebab75e-a371-3315-9eaa-a3c14bf6dd2a": {
+									"nodeId": "_kkxxzdq0c"
+								},
+								"3f11aa18-e32d-3223-a07b-485860e09e51": {
+									"nodeId": "_ab7u16jjg"
+								}
+							},
+							"prompt": "<p>How can I help you today?</p>",
+							"defaultAnswer": null,
+							"defaultResponse": {
+								"response": "",
+								"outputKey": "default",
+								"actionGroup": null,
+								"actionGroupConfiguration": null,
+								"hasAnythingSet": false
+							},
+							"defaultAnswerId": null,
+							"answers": [
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"547d33bf-3af9-4a05-afe2-1a1c7202a93f"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "095852d4-45d8-326d-94a8-53229de66a7c",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "d5a9e9b6-503a-4879-8264-813e41dc40bf",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"6a6f707f-610c-4a3b-8582-9a14d3dda85f"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "7f68bc39-5b52-3fae-a6f8-edbc61fb87d7",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "5bcb09a7-0ff3-4d71-8b84-14928f0be804",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"960a03b5-9990-4e03-81a8-d7ec206554ea"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "93aa0b67-8e27-3d0a-aa77-be299df800a8",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "c267a7a0-b85d-4177-94a8-a61e9a2a1290",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"68fda6e9-c1ff-4e1b-85a1-244f0c796b14"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "f13e12e5-ea26-3857-b7e3-f66f58252b5a",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "afe77d8a-802d-47d4-a27c-d1f43fd703d1",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"cb841226-31e2-45c0-bd46-5848eb3cd614"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "a477c6be-992e-312c-b8d9-ddf1366f87eb",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "c09ea7f3-d1b5-4781-9962-8215f2360851",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"0b3757bc-5bc3-44fc-b0c3-e146bce85d67"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "e843a226-61c5-32ff-81ec-ffcff10ef3d5",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "84543224-8f28-46ce-a937-599ab1ad7019",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"8137c8b6-6031-4d18-8198-6f8be41ace94"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "a6f71982-79e4-305f-a5f5-b6a7eaf8b897",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "194cb2cd-eb6c-4453-840a-80cc8efafffb",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"d6f25724-c5e1-4377-af74-3f86e85f27f1"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "213787eb-905d-3d09-884a-50d12380926e",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "cca9a7b7-a91e-4249-8cf8-b5c8c79c9405",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"a4f3bc9c-0af2-4dc2-8460-4128bd7faabc"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "ee68748a-c387-3732-aa4b-d6a4a966a4dc",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "c5de12cc-07d8-4057-b496-182dc5fcae40",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"02aca022-34c9-47b3-8026-5f828d4f9668"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "5eee59c9-61ce-3121-bcd5-25cad904fa1d",
+									"actionGroup": "3b799b14-74de-439a-8c7f-ba051b5bf153",
+									"actionGroupConfiguration": null,
+									"id": "96fc1cf3-de00-478f-89fe-5a7bd6d0379e",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"a4c9705a-d3bd-4c0c-9b95-d76433fabe5c"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "c312aaca-7ae5-3b56-b1af-3d190d20282d",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "273fdb47-ddc9-4db7-8c9b-660d22c68e13",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"11af57d4-1a4e-4f1a-97fd-2f9c01ff1301"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "d461dbf7-915a-3d84-89f4-a19e122c2917",
+									"actionGroup": "23f56bd2-9f95-4515-a010-b7ba5752df66",
+									"actionGroupConfiguration": null,
+									"id": "8f3b35f6-8fc5-493d-97c1-52887d26b510",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "BUTTON",
+									"outputType": "SKIP",
+									"response": "<p>Great!</p>",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": "I'd like to book a demo",
+									"outputKey": "30fed5c7-0fe3-3494-9c75-a50bf8693856",
+									"actionGroup": "1bb5c1ea-318f-4274-96dc-0b825593e934",
+									"actionGroupConfiguration": null,
+									"id": "_qq24p9e32",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "BUTTON",
+									"outputType": "SKIP",
+									"response": "<p>Great!</p>",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": "I'd like to speak with an expert",
+									"outputKey": "8f3edfca-b5be-3384-ac59-3fbbd37294ca",
+									"actionGroup": "48e7fed6-4d4f-4f49-82a3-648a7074ea9c",
+									"actionGroupConfiguration": null,
+									"id": "4ad5ede1-8fac-43ad-9256-fcde3c8f56d1",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "BUTTON",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": "I'm an existing customer",
+									"outputKey": "bf6db509-b9ac-3593-99dd-3fc4320a4f4f",
+									"actionGroup": "352b82df-bbf5-4715-86a9-1dd5cd93ab8b",
+									"actionGroupConfiguration": null,
+									"id": "_lf7o32ch1",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "BUTTON",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": "I need support",
+									"outputKey": "2382ebb7-fdc0-3a20-8995-636bd1ab1e89",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "30a3e9aa-acb2-4bf9-927b-ce811012a45b",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "BUTTON",
+									"outputType": "SKIP",
+									"response": "<p>Sure! You can take control of professional email signatures with Exclaimer Signature Management Cloud and transform the end of every business email into a new digital advertising channel with Exclaimer Signature Marketing Cloud. </p>",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": "Tell me more about Exclaimer",
+									"outputKey": "84f116e4-e1b5-3d83-b648-0ed26204a4d0",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "22da6f44-59e6-4f84-a26d-8301635eea0f",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_DEFAULT",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "ea5fe104-78f2-331d-b664-307bbeef522a",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_8zcspb47c",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"627c81b8-8b5e-48bf-8cfd-57873bd6f84c"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "d84276cb-862c-37ec-9ca1-50f35d7b1653",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_6cuuhzdmg",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"9fd42d7b-c262-44d3-807e-0f90ca700c9a"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "b95375a5-137d-3e7b-993a-6b71a6d389d1",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_8olk67zlc",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"1b32ade7-96f4-402f-bfe7-ebdadba8b895"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "e1cf8c59-06dc-36c7-a202-f041e31a8aea",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_nxuoyb2h8",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"631b1eb9-cbf6-4790-8d24-f0347799bea4"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "4c58e98e-352b-3aa2-91d6-40e253e864dd",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_nah6lnrbe",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"406ae703-e968-421a-b597-a4d24b58cbd2"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "6e03a200-8fee-3606-9b7c-24931c079264",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_5tf9k4boo",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"1d89e603-aa7e-48a2-9840-e25d9b669ed5"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "296a13b1-6a24-3095-a2b3-3f0a885f3d59",
+									"actionGroup": "b1c16c81-2560-4506-b3ed-4d3d200c5270",
+									"actionGroupConfiguration": null,
+									"id": "_ubv7s52w0",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"eb3858ab-9aff-438c-864d-c54271223629"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "0966b969-bcf2-39c0-86b0-db5f725243a5",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_v89fwpb4b",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"22e39d3c-9d89-4a16-9fae-0a793fbb06a2"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "4dee1125-03be-3569-b05b-8440c9bdf859",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_pn09txrvq",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"5cd9d64a-3e38-4534-a967-899db3ccbf65"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "7ba5c6d9-90b0-3fd5-8897-a1f2d35fd351",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_0jsxyrr8l",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"d3890c84-cab4-446f-a272-85a4b3fc7590"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "a6ee1585-6bbe-3392-85dc-e66eee99fafa",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_k330r5kxp",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"b70160d9-2f57-48ba-8bb1-4f288dbea61b"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "6bd8aa8f-110c-321e-a53c-ca2c576a1ff1",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_g2l81a9o4",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"43d02c68-11c3-48f9-840e-18553c3d81cd"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "80b63d3a-4974-3cfd-895f-13f5cf636136",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_5vngd2672",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"5d915c72-dd42-442a-a77d-4c9fc6e3c4a4"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "d8d1183c-5980-3b7d-8125-9197baedab89",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_2x3wi6um7",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"c8498334-f73a-41a1-a5ef-4a57c75584ce"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "a69b6319-bf3e-34c9-a094-09816f856ba0",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_th13iw3nr",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"236b83c6-0be5-4531-92da-1dd5ebd15e62"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "0571a1f9-8d9f-3a11-8e5c-b6b3f6590976",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_sspzolqwr",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"397be3a7-1787-4473-9a13-5bea99954b00"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "102c85f9-ada3-3ef8-89f4-05e8e1c377fb",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_03fuwf1y2",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"003389fd-7cf0-4f72-ba6d-98bbb0c65cd3"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "0584649d-98bf-33e4-b0e0-d0febdeee0cf",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_8eoo8pf5c",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"1cd80436-8984-43ee-9a5a-806087e4430d"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "f04e87de-5145-30e7-a067-c941bea0a7d9",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_2kv2fia00",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"2e7ae16d-5ec9-47e2-aa6f-d8fddc61f1be"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "d2bf546a-4095-369c-8fd5-c637b555efe1",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_3jl81uozo",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"fafb2d25-5289-42ff-8f28-f261879a1a5b"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "7621a0f1-3de7-3f2f-b611-a6df30081ae0",
+									"actionGroup": "29990cf9-09e5-449e-9623-98ac633946b9",
+									"actionGroupConfiguration": null,
+									"id": "_5durukwdx",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"f4a778c4-0e53-44b5-8102-4f4ddfa89dcc"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "74981349-bc76-3a6a-a50a-a2b79716b4e3",
+									"actionGroup": "d5293dcc-d734-4947-8cc7-85c3196e0e12",
+									"actionGroupConfiguration": null,
+									"id": "_7xeobdgub",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"caf63f53-d34d-4b1a-95f6-6f129f92347a"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "733dc2aa-9528-32e0-9abc-6be448bb8c6a",
+									"actionGroup": "d5b6367e-1786-48c2-b39e-beb0e514d4c4",
+									"actionGroupConfiguration": null,
+									"id": "_3qxoy3tdc",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"c3dc2a69-e4ef-4a03-aff6-f55ee5013027"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "f861f276-2358-39ed-831d-b857e2410f84",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_l2huqbghb",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"62c9b11c-e372-46cb-80d2-ae2797cc58a5"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "6fe523c1-ecd4-3fa0-bbde-7037187841ea",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_7rqk6lnor",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"2a14af5a-5fb9-4876-8313-4de2fe2ebede"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "d3fd9ad5-5082-3684-b75b-3ac9814e9483",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_yfa95w9eu",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"212cd54f-165d-4e5d-bf62-5714efa4ec24"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "a888361c-e797-39b2-ae4c-bb40ebfb3dd5",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_5t1siv8x8",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"5517ac90-328a-438f-87e7-3156fc965480"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "054c6801-4ba1-3f9d-a455-cce57647b8cd",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_c8d8lpa32",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"54c34146-4392-4a58-9623-11127c6992f1"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "339c5826-211e-3016-98c0-f02ca365135a",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_en2h7b1h7",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"982d2eb2-4426-4d05-87de-42e026a0dd90"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "ea385735-63bc-3cf6-9942-695247e51e0d",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_nb33fkz1b",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"b6d7089d-9305-4d53-8b2f-c44b4beffcf8"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "d840e4fc-323d-373a-a341-c3fe5f7205ac",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_n2697p2c3",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"a2712500-86df-45e5-aa23-b4d492547345"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "3f11aa18-e32d-3223-a07b-485860e09e51",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_kiik5ufa1",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"bed071ee-d3f5-44cc-b81e-0aaa5d207ffe"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "280bf860-8f44-3d7f-b0bc-13a76985bbff",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_r74ru3ito",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"8629370b-b9d3-44a8-8423-5a615ad303a4"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "c11c9834-e79e-3dd1-a3f8-a2af3ed9710b",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_2v8362xfu",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"8917c64b-e462-4029-90a4-67116549d42e"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "b159cda2-40d7-3c7b-9dd3-a62aef00ba01",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_qrxd0ip4a",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"c8f41af6-6663-41e7-9c7c-c5e1a56a48f8"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "a05370e8-b4b2-3345-9349-52a3c2f7b94a",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_nthpeb1vd",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"d6787650-07c1-4eb2-b907-4a7c418d7650"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "7a8d9159-9a53-3055-81ee-b99d29fdd445",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_zh7rseqn8",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"b338021e-f505-4790-abf6-621ed7c33e83"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "acc957f4-a45c-309f-915d-ac6a2ea42eeb",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_agwkr2pjg",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"0b0d9fe1-8a55-45aa-99ec-39e8cd31c1fc"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "7f64a180-207d-3513-bfab-8b0cd56558c6",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_ws5p5x7uc",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"613da851-4d8e-4b97-8b70-17bd488061fd"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "0d1f7684-d858-34f7-8404-491f770ee67f",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_v7eze0xch",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"3f55220f-8f35-4758-9f9e-e9a4ea1b3136"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "a806c99d-c61c-33e0-9e3a-fa27fde1911e",
+									"actionGroup": "4ccb1105-364f-4059-97cd-a533b03cbb98",
+									"actionGroupConfiguration": null,
+									"id": "_cifojk69s",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"4b05536b-064e-46c5-a892-14f48ad10fc1"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "19eef842-4f96-3163-8365-62f591d176e2",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_ltlxszs0e",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"95bda432-1ac3-40e5-abe3-13c4cd9b7eb6"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "90014775-6282-390b-8bf0-ce8e248eb05b",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_sdk2ohn39",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"c450734a-2499-4817-b594-a81c445aecfd"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "f27cc928-1abd-3185-aa6d-bd521be1a717",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_26z7fgad2",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"9bd63706-552b-4989-b0bd-c270d72d8b6b"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "9e6c052d-1003-3250-9eaa-db4b25e3a75f",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_d82zogu66",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"c9be5101-add2-4445-a0e2-58c8a9e47a04"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "c29ca44c-e59c-3c75-89b6-d1b69228d425",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_hfwhx31iu",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"000df942-9bf8-44c3-8839-2365836be26b"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "5d5d0ae8-066a-30a3-a5ed-28257f9322f5",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_kgfm7kli1",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"12b1b7d8-24b7-4d84-93af-7938498a3598"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "66c00eba-8f70-375c-b896-009dbc9e9127",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_kh4oiel41",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"0a89d860-8105-4bbd-a808-5af724148698"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "4a592031-9d8f-31ff-a3c9-ab6cf7c5dc5f",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_db2s7zji3",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"14504503-878d-4a08-8003-7a4e806d3010"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "73f3b7c1-52b1-35d8-8eb8-1ea4cd76e0dd",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_el9u6s0lz",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"15ee5ab2-b060-446d-bf1c-9e03810db36d"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "8cac98ac-b520-3511-9d2b-081b97196620",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_aajwg5d8j",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"a2e1f65a-5904-4779-a796-ae052ee86da2"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "96c9d1cd-1de5-3c8d-9d2d-864dd6939b61",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_hafciydz8",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"ba3fbcf9-f835-45a0-a4cd-1b5f3754cea9"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "6d51785d-0bd8-3ec8-b200-06927b5c7465",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_18gv0whn1",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"4e518e54-3a67-4f17-902c-25c31c22c5c2"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "4bec9bb3-176e-3588-87dd-7c442ef6853b",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_8q8dpekh3",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"8a6dbc7c-b61a-4207-be6f-56de4c89023b"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "804506d6-77fb-3198-80d0-dfd71f394b53",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_kjmdwfk1l",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"b048c6f7-82bb-4fb7-943b-e7ae86bd06ed"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "e0b06aad-8d31-3c89-928a-d337882b2c85",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_9m2podxha",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"b84b22f9-7c34-4fcc-a301-d7cd082cfdb8"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "07a2d6b7-e990-3580-8529-51c50ef732bc",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_5nytdnnwr",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"51b47f99-0a5b-4d45-ab17-544dbd5c0d0d"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "9a9e3917-3f54-3cdd-b4bd-a45d003ccaa0",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_d1y0gjtql",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"1ac49d77-d1ab-4767-b1ca-e54f0540e0fe"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "189f57ea-caa3-3276-9743-974d3f512dca",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_3hx9zqtiy",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"2d77d465-3ca8-4046-9705-aaf10eb89f3c"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "5e984226-e821-3467-9e46-dee6b67487ae",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_1c9ouqp9r",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"f65c36c2-d248-4f67-8404-0e3094d1dcc5"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "4ebab75e-a371-3315-9eaa-a3c14bf6dd2a",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_z8hvn6ppm",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"0cd809b6-9465-43a4-ac39-04469b6ec563"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "2ca736b0-e36f-3009-bcb6-24e0071b6d9a",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_wm0lkete8",
+									"questionId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								}
+							],
+							"isButtonOnly": false,
+							"isDropdown": false,
+							"fieldConfiguration": null,
+							"isCaptureQuestion": false
+						}
+					},
+					{
+						"id": "_vdb37kcw3",
+						"type": "QUESTION",
+						"configuration": {
+							"outputs": {
+								"default": {
+									"nodeId": "_7q0itggow"
+								},
+								"bc4f1143-8f54-307c-8922-0ff6c3c81267": {
+									"nodeId": "_7q0itggow"
+								}
+							},
+							"prompt": "<p>Please share your subscription ID</p>",
+							"defaultAnswer": null,
+							"defaultResponse": {
+								"response": "",
+								"outputKey": "default",
+								"actionGroup": null,
+								"actionGroupConfiguration": null,
+								"hasAnythingSet": false
+							},
+							"defaultAnswerId": null,
+							"answers": [
+								{
+									"type": "AI_DEFAULT",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "bc4f1143-8f54-307c-8922-0ff6c3c81267",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_ik1ybuj7r",
+									"questionId": "_vdb37kcw3",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								}
+							],
+							"isButtonOnly": false,
+							"isDropdown": false,
+							"fieldConfiguration": {
+								"fieldName": "subscription_id",
+								"skipIfFull": false,
+								"loop": false,
+								"loopConfiguration": null
+							},
+							"isCaptureQuestion": false
+						}
+					},
+					{
+						"id": "744138f0-b09c-40ea-89ce-ad33fc043c4d",
+						"type": "QUESTION",
+						"configuration": {
+							"outputs": {
+								"default": {
+									"nodeId": "END_CONVERSATION"
+								},
+								"0e063fb9-d25b-3180-894c-af2efbcb4bd0": {
+									"nodeId": "END_CONVERSATION"
+								},
+								"993b4acf-8374-35c9-8ceb-7bd6d7d47e3a": {
+									"nodeId": "_8f283o1yf"
+								},
+								"92d02461-95aa-39b4-a707-5b4e10ea9b18": {
+									"nodeId": "dc1834c5-5fb1-4832-94a5-15bd073f492a"
+								},
+								"0506c258-1e49-347a-80e2-41ab8b8a0903": {
+									"nodeId": "dc1834c5-5fb1-4832-94a5-15bd073f492a"
+								},
+								"c1dab57d-7abb-39e3-82d8-197eb0111006": {
+									"nodeId": "cf82aa68-d62c-4f33-9ec4-7ba6e46a0b8a"
+								}
+							},
+							"prompt": "<p>Our team would be happy to schedule a demo with you, If you'd like to see how Exclaimer works!</p>",
+							"defaultAnswer": null,
+							"defaultResponse": {
+								"response": "",
+								"outputKey": "default",
+								"actionGroup": null,
+								"actionGroupConfiguration": null,
+								"hasAnythingSet": false
+							},
+							"defaultAnswerId": null,
+							"answers": [
+								{
+									"type": "BUTTON",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": "I'm ready for a Demo",
+									"outputKey": "92d02461-95aa-39b4-a707-5b4e10ea9b18",
+									"actionGroup": "51a56380-e43b-4dd3-9a99-3eed60483e32",
+									"actionGroupConfiguration": null,
+									"id": "e1c55527-655b-400f-93ac-cb8b9651e1bf",
+									"questionId": "744138f0-b09c-40ea-89ce-ad33fc043c4d",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "BUTTON",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": "I want to speak to sales",
+									"outputKey": "0506c258-1e49-347a-80e2-41ab8b8a0903",
+									"actionGroup": "9adce9f2-691e-4383-b910-326e49b52509",
+									"actionGroupConfiguration": null,
+									"id": "843379c1-ee6e-4cd1-93a0-116167f0765e",
+									"questionId": "744138f0-b09c-40ea-89ce-ad33fc043c4d",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "BUTTON",
+									"outputType": "SKIP",
+									"response": "<p>No problem! Check out our eBooks, White Papers, Webinars, Guides and much more <a href=\"https://www.exclaimer.com/resources/\" target=\"_blank\">here</a>!</p>",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": "I'd like to learn more",
+									"outputKey": "c1dab57d-7abb-39e3-82d8-197eb0111006",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "394cf493-0077-4141-b5c7-f0d3d6eab68f",
+									"questionId": "744138f0-b09c-40ea-89ce-ad33fc043c4d",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_DEFAULT",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "0e063fb9-d25b-3180-894c-af2efbcb4bd0",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_q1w4n6owm",
+									"questionId": "744138f0-b09c-40ea-89ce-ad33fc043c4d",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "BUTTON",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": "I need help",
+									"outputKey": "993b4acf-8374-35c9-8ceb-7bd6d7d47e3a",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_sh1rs9o9l",
+									"questionId": "744138f0-b09c-40ea-89ce-ad33fc043c4d",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								}
+							],
+							"isButtonOnly": true,
+							"isDropdown": false,
+							"fieldConfiguration": null,
+							"isCaptureQuestion": false
+						}
+					},
+					{
+						"id": "_8f283o1yf",
+						"type": "QUESTION",
+						"configuration": {
+							"outputs": {
+								"13a9330e-ce52-3f97-905e-f277cdd23311": {
+									"nodeId": "dc1834c5-5fb1-4832-94a5-15bd073f492a"
+								},
+								"default": {
+									"nodeId": "END_CONVERSATION"
+								},
+								"196581d2-5877-3b8a-a124-42bbbad8588f": {
+									"nodeId": "_sr0hh1j1u"
+								},
+								"09af780a-aec6-3bf0-b76d-b9e99091ca15": {
+									"nodeId": "dc1834c5-5fb1-4832-94a5-15bd073f492a"
+								}
+							},
+							"prompt": "<p>Which of the following teams do you need to speak to?</p>",
+							"defaultAnswer": null,
+							"defaultResponse": {
+								"response": "",
+								"outputKey": "default",
+								"actionGroup": null,
+								"actionGroupConfiguration": null,
+								"hasAnythingSet": false
+							},
+							"defaultAnswerId": null,
+							"answers": [
+								{
+									"type": "BUTTON",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": "Sales",
+									"outputKey": "13a9330e-ce52-3f97-905e-f277cdd23311",
+									"actionGroup": "4c2daf3f-b93f-4a62-8392-b1bc5f1bdd31",
+									"actionGroupConfiguration": null,
+									"id": "_7fhzz3ouc",
+									"questionId": "_8f283o1yf",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "BUTTON",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": "Support",
+									"outputKey": "196581d2-5877-3b8a-a124-42bbbad8588f",
+									"actionGroup": "deda318c-e6c6-48d8-ad1f-3435197d4fae",
+									"actionGroupConfiguration": null,
+									"id": "_tmzyu3nij",
+									"questionId": "_8f283o1yf",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_DEFAULT",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "09af780a-aec6-3bf0-b76d-b9e99091ca15",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_j4can7qgg",
+									"questionId": "_8f283o1yf",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								}
+							],
+							"isButtonOnly": true,
+							"isDropdown": false,
+							"fieldConfiguration": null,
+							"isCaptureQuestion": false
+						}
+					},
+					{
+						"id": "dc1834c5-5fb1-4832-94a5-15bd073f492a",
+						"type": "QUESTION",
+						"configuration": {
+							"outputs": {
+								"11b394f2-402c-3df4-829f-c622096e28df": {
+									"nodeId": "_6lbpfb6vq"
+								},
+								"f5301218-066f-34d9-8b54-e3a2902a1da7": {
+									"nodeId": "27563868-1221-4b4e-82e7-072dc3d8aba4"
+								},
+								"SPECIAL_DOMAIN_ANSWER": {
+									"nodeId": "27563868-1221-4b4e-82e7-072dc3d8aba4"
+								}
+							},
+							"prompt": "<p>To get you connected to the team, what's your business email address? </p>",
+							"defaultAnswer": null,
+							"defaultResponse": null,
+							"defaultAnswerId": "46a6a61c-5950-4534-bc68-abdb31ca54e8",
+							"answers": [
+								{
+									"type": "VALIDATE",
+									"outputType": "SKIP",
+									"response": "<p>Got it! Thanks for entering your email address.</p>",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "11b394f2-402c-3df4-829f-c622096e28df",
+									"actionGroup": "fb7006a6-2d20-4aa8-9f57-23bc86e13bcd",
+									"actionGroupConfiguration": null,
+									"id": "50d67de6-5801-4d8f-a1fe-7b5297843636",
+									"questionId": "dc1834c5-5fb1-4832-94a5-15bd073f492a",
+									"validationType": "EMAIL",
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "INVALIDATE",
+									"outputType": "NONE",
+									"response": "<p>Sorry, I didn't understand that. I need a valid email address.</p>",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "f5301218-066f-34d9-8b54-e3a2902a1da7",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "46a6a61c-5950-4534-bc68-abdb31ca54e8",
+									"questionId": "dc1834c5-5fb1-4832-94a5-15bd073f492a",
+									"validationType": "EMAIL",
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								}
+							],
+							"isButtonOnly": null,
+							"isDropdown": false,
+							"fieldConfiguration": {
+								"fieldName": "email",
+								"skipIfFull": false,
+								"loop": true,
+								"loopConfiguration": {
+									"maxLoops": 1,
+									"invalidResponses": [],
+									"hasSpecialDomainRule": true,
+									"specialDomainRule": {
+										"includeKnownDomains": true,
+										"domains": [
+											"gmail.com",
+											"yahoo.com",
+											"icloud.com",
+											"hotmail.com",
+											"outlook.com"
+										],
+										"answer": {
+											"type": "BUTTON",
+											"outputType": "NONE",
+											"response": "<p>Sorry, I didn't understand that. I need a valid business email address.</p>",
+											"examples": [],
+											"keywords": [],
+											"aiTopicIds": [],
+											"keywordGroupId": null,
+											"buttonText": null,
+											"outputKey": "SPECIAL_DOMAIN_ANSWER",
+											"actionGroup": null,
+											"actionGroupConfiguration": null,
+											"id": "1154d19b-ce01-45d9-9c9b-e802b3e682aa",
+											"questionId": "dc1834c5-5fb1-4832-94a5-15bd073f492a",
+											"validationType": null,
+											"validationConfig": {
+												"phoneCountryCode": "US"
+											}
+										},
+										"maxPersonalEmailLoops": null,
+										"personalEmailLoopingEnabled": true
+									}
+								}
+							},
+							"isCaptureQuestion": true
+						}
+					},
+					{
+						"id": "a37360ad-4b74-4861-bc8a-1a7c2ada4c00",
+						"type": "QUESTION",
+						"configuration": {
+							"outputs": {
+								"default": {
+									"nodeId": "_sh3ho3q0p"
+								},
+								"00d9f977-c676-3244-9330-6dd0a3fabf77": {
+									"nodeId": "_sh3ho3q0p"
+								},
+								"7e86021e-149f-398e-ada0-a79fd86c72c4": {
+									"nodeId": "_sh3ho3q0p"
+								}
+							},
+							"prompt": "<p>What is your first name?</p>",
+							"defaultAnswer": null,
+							"defaultResponse": {
+								"response": "",
+								"outputKey": "default",
+								"actionGroup": null,
+								"actionGroupConfiguration": null,
+								"hasAnythingSet": false
+							},
+							"defaultAnswerId": null,
+							"answers": [
+								{
+									"type": "AI_DEFAULT",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "00d9f977-c676-3244-9330-6dd0a3fabf77",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_e8h0v4vvg",
+									"questionId": "a37360ad-4b74-4861-bc8a-1a7c2ada4c00",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"41529d3c-0a37-4be6-a059-7d0549201092"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "7e86021e-149f-398e-ada0-a79fd86c72c4",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_ilchopbwm",
+									"questionId": "a37360ad-4b74-4861-bc8a-1a7c2ada4c00",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								}
+							],
+							"isButtonOnly": false,
+							"isDropdown": false,
+							"fieldConfiguration": {
+								"fieldName": "first_name",
+								"skipIfFull": false,
+								"loop": false,
+								"loopConfiguration": null
+							},
+							"isCaptureQuestion": false
+						}
+					},
+					{
+						"id": "c27166cf-1c20-40d0-b0aa-2ada488c2132",
+						"type": "QUESTION",
+						"configuration": {
+							"outputs": {
+								"321ff83f-b784-3dba-909c-ca5108aeb818": {
+									"nodeId": "_n90ukc4ee"
+								},
+								"default": {
+									"nodeId": "_n90ukc4ee"
+								},
+								"433a09e3-8e83-376e-95a6-b862cd96b459": {
+									"nodeId": "_n90ukc4ee"
+								}
+							},
+							"prompt": "<p>What is your last name?</p>",
+							"defaultAnswer": null,
+							"defaultResponse": {
+								"response": "",
+								"outputKey": "default",
+								"actionGroup": null,
+								"actionGroupConfiguration": null,
+								"hasAnythingSet": false
+							},
+							"defaultAnswerId": null,
+							"answers": [
+								{
+									"type": "AI_DEFAULT",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "433a09e3-8e83-376e-95a6-b862cd96b459",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_ju7moqrrx",
+									"questionId": "c27166cf-1c20-40d0-b0aa-2ada488c2132",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"41529d3c-0a37-4be6-a059-7d0549201092"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "321ff83f-b784-3dba-909c-ca5108aeb818",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_q20a68v8z",
+									"questionId": "c27166cf-1c20-40d0-b0aa-2ada488c2132",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								}
+							],
+							"isButtonOnly": false,
+							"isDropdown": false,
+							"fieldConfiguration": {
+								"fieldName": "last_name",
+								"skipIfFull": false,
+								"loop": false,
+								"loopConfiguration": null
+							},
+							"isCaptureQuestion": false
+						}
+					},
+					{
+						"id": "_xcuwrrm80",
+						"type": "QUESTION",
+						"configuration": {
+							"outputs": {
+								"0584019f-f200-3e4a-b616-eaa1abd193ce": {
+									"nodeId": "_oe7vgz9g0"
+								},
+								"default": {
+									"nodeId": "_oe7vgz9g0"
+								},
+								"960b9c72-70b2-37ba-8351-57b76e5a4448": {
+									"nodeId": "_oe7vgz9g0"
+								}
+							},
+							"prompt": "<p>What is the name of your company?</p>",
+							"defaultAnswer": null,
+							"defaultResponse": {
+								"response": "",
+								"outputKey": "default",
+								"actionGroup": null,
+								"actionGroupConfiguration": null,
+								"hasAnythingSet": false
+							},
+							"defaultAnswerId": null,
+							"answers": [
+								{
+									"type": "AI_DEFAULT",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "960b9c72-70b2-37ba-8351-57b76e5a4448",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_8ozvxlptg",
+									"questionId": "_xcuwrrm80",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"2b0cf988-f2f4-4a58-92a2-42a3679c076c"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "0584019f-f200-3e4a-b616-eaa1abd193ce",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_qbcc6w2ix",
+									"questionId": "_xcuwrrm80",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								}
+							],
+							"isButtonOnly": false,
+							"isDropdown": false,
+							"fieldConfiguration": {
+								"fieldName": "employment_name",
+								"skipIfFull": false,
+								"loop": false,
+								"loopConfiguration": null
+							},
+							"isCaptureQuestion": false
+						}
+					},
+					{
+						"id": "_2rkwhzgws",
+						"type": "QUESTION",
+						"configuration": {
+							"outputs": {
+								"default": {
+									"nodeId": "END_CONVERSATION"
+								},
+								"00b6900b-08ea-32e0-b2cf-e90cd7b77c86": {
+									"nodeId": "0a5aaedf-9e8f-43fa-93a5-e81041332f7c"
+								},
+								"cf72cbf6-5d50-342e-bd4b-8ab626dca39e": {
+									"nodeId": "0a5aaedf-9e8f-43fa-93a5-e81041332f7c"
+								},
+								"2276d518-b8d5-3fd8-a205-708feb012d9d": {
+									"nodeId": "_cfj3lgryt"
+								}
+							},
+							"prompt": "<p>Are you ready to speak with the team now?</p>",
+							"defaultAnswer": null,
+							"defaultResponse": {
+								"response": "",
+								"outputKey": "default",
+								"actionGroup": null,
+								"actionGroupConfiguration": null,
+								"hasAnythingSet": false
+							},
+							"defaultAnswerId": null,
+							"answers": [
+								{
+									"type": "BUTTON",
+									"outputType": "SKIP",
+									"response": "<p>One moment, while we connect you with our team...</p>",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": "Sure!",
+									"outputKey": "00b6900b-08ea-32e0-b2cf-e90cd7b77c86",
+									"actionGroup": "32774e96-8c57-4992-80be-345319451af7",
+									"actionGroupConfiguration": null,
+									"id": "_8zxwne7dp",
+									"questionId": "_2rkwhzgws",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "BUTTON",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": "I want to schedule the demo",
+									"outputKey": "2276d518-b8d5-3fd8-a205-708feb012d9d",
+									"actionGroup": "58a041de-a0b3-4db6-99b9-c58913b561fe",
+									"actionGroupConfiguration": null,
+									"id": "_d1gdwjtj2",
+									"questionId": "_2rkwhzgws",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_DEFAULT",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "cf72cbf6-5d50-342e-bd4b-8ab626dca39e",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_oi1x2zfvq",
+									"questionId": "_2rkwhzgws",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								}
+							],
+							"isButtonOnly": true,
+							"isDropdown": false,
+							"fieldConfiguration": null,
+							"isCaptureQuestion": false
+						}
+					},
+					{
+						"id": "_aekgt6g4d",
+						"type": "QUESTION",
+						"configuration": {
+							"outputs": {
+								"97ebbcd9-cabd-3a39-85ac-8efdccfae8bb": {
+									"nodeId": "_oe7vgz9g0"
+								},
+								"default": {
+									"nodeId": "_oe7vgz9g0"
+								},
+								"d3296bf0-2e3b-378b-ab1b-3c6701d7f699": {
+									"nodeId": "_oe7vgz9g0"
+								}
+							},
+							"prompt": "<p>What is your job title?</p>",
+							"defaultAnswer": null,
+							"defaultResponse": {
+								"response": "",
+								"outputKey": "default",
+								"actionGroup": null,
+								"actionGroupConfiguration": null,
+								"hasAnythingSet": false
+							},
+							"defaultAnswerId": null,
+							"answers": [
+								{
+									"type": "AI_DEFAULT",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "d3296bf0-2e3b-378b-ab1b-3c6701d7f699",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_ezvn9eb4y",
+									"questionId": "_aekgt6g4d",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_TOPIC",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [
+										"a9380a3f-cc27-480f-96ee-a04e6745c791"
+									],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "97ebbcd9-cabd-3a39-85ac-8efdccfae8bb",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_3ftem36oq",
+									"questionId": "_aekgt6g4d",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								}
+							],
+							"isButtonOnly": false,
+							"isDropdown": false,
+							"fieldConfiguration": {
+								"fieldName": "employment_title",
+								"skipIfFull": false,
+								"loop": false,
+								"loopConfiguration": null
+							},
+							"isCaptureQuestion": false
+						}
+					},
+					{
+						"id": "27563868-1221-4b4e-82e7-072dc3d8aba4",
+						"type": "QUESTION",
+						"configuration": {
+							"outputs": {
+								"a51dc85a-f90a-3b0c-87d9-3f7f59dfcba0": {
+									"nodeId": "END_CONVERSATION"
+								},
+								"default": {
+									"nodeId": "END_CONVERSATION"
+								},
+								"4758119b-9fd5-3994-94ed-ce84a4728044": {
+									"nodeId": "dc1834c5-5fb1-4832-94a5-15bd073f492a"
+								}
+							},
+							"prompt": "<p>I need a valid email address in order to get you connected. Let me know if you'd like to try again.</p>",
+							"defaultAnswer": null,
+							"defaultResponse": {
+								"response": "",
+								"outputKey": "default",
+								"actionGroup": null,
+								"actionGroupConfiguration": null,
+								"hasAnythingSet": false
+							},
+							"defaultAnswerId": null,
+							"answers": [
+								{
+									"type": "BUTTON",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": "Try again",
+									"outputKey": "4758119b-9fd5-3994-94ed-ce84a4728044",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "bb1fa530-1d5d-4ab0-9111-27dcb0948f38",
+									"questionId": "27563868-1221-4b4e-82e7-072dc3d8aba4",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_DEFAULT",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "a51dc85a-f90a-3b0c-87d9-3f7f59dfcba0",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_lbfm2uxf0",
+									"questionId": "27563868-1221-4b4e-82e7-072dc3d8aba4",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								}
+							],
+							"isButtonOnly": true,
+							"isDropdown": false,
+							"fieldConfiguration": null,
+							"isCaptureQuestion": false
+						}
+					},
+					{
+						"id": "cf82aa68-d62c-4f33-9ec4-7ba6e46a0b8a",
+						"type": "QUESTION",
+						"configuration": {
+							"outputs": {
+								"80bf4050-604d-3852-bd14-2e8f8fd6c02f": {
+									"nodeId": "_8f283o1yf"
+								},
+								"default": {
+									"nodeId": "END_CONVERSATION"
+								},
+								"09dafd60-a01e-3a29-b81d-00da40c64d7a": {
+									"nodeId": "_8f283o1yf"
+								}
+							},
+							"prompt": "<p>Hope that was useful! If you have any questions, let me know and I can get you connected to our team.</p>",
+							"defaultAnswer": null,
+							"defaultResponse": {
+								"response": "",
+								"outputKey": "default",
+								"actionGroup": null,
+								"actionGroupConfiguration": null,
+								"hasAnythingSet": false
+							},
+							"defaultAnswerId": null,
+							"answers": [
+								{
+									"type": "BUTTON",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": "Get me connected!",
+									"outputKey": "80bf4050-604d-3852-bd14-2e8f8fd6c02f",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "8f103bc8-2ed0-489e-89a8-9791f136c63a",
+									"questionId": "cf82aa68-d62c-4f33-9ec4-7ba6e46a0b8a",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_DEFAULT",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "09dafd60-a01e-3a29-b81d-00da40c64d7a",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_raps58kim",
+									"questionId": "cf82aa68-d62c-4f33-9ec4-7ba6e46a0b8a",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								}
+							],
+							"isButtonOnly": true,
+							"isDropdown": false,
+							"fieldConfiguration": null,
+							"isCaptureQuestion": false
+						}
+					},
+					{
+						"id": "_ab7u16jjg",
+						"type": "QUESTION",
+						"configuration": {
+							"outputs": {
+								"default": {
+									"nodeId": "END_CONVERSATION"
+								},
+								"e9b30195-fc26-3212-b8bc-98bff12f1873": {
+									"nodeId": "_webhook"
+								},
+								"d77816a9-a3c2-3e06-84b5-262d95203971": {
+									"nodeId": "_ruwhiw59m"
+								},
+								"694dc223-9eef-3c37-81d7-3ae99cdd87d6": {
+									"nodeId": "_webhook"
+								},
+								"667cc9f8-add0-370b-bead-1cc23b45f09d": {
+									"nodeId": "_3xejxor6e"
+								},
+								"718f1f80-fcd9-30b3-882b-bbdf6a23480c": {
+									"nodeId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f"
+								}
+							},
+							"prompt": "<p>Do you still need support?</p>",
+							"defaultAnswer": null,
+							"defaultResponse": {
+								"response": "",
+								"outputKey": "default",
+								"actionGroup": null,
+								"actionGroupConfiguration": null,
+								"hasAnythingSet": false
+							},
+							"defaultAnswerId": null,
+							"answers": [
+								{
+									"type": "BUTTON",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": "Yes!",
+									"outputKey": "694dc223-9eef-3c37-81d7-3ae99cdd87d6",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_q5qjdfjs3",
+									"questionId": "_ab7u16jjg",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_DEFAULT",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "e9b30195-fc26-3212-b8bc-98bff12f1873",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_t461rhowh",
+									"questionId": "_ab7u16jjg",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "BUTTON",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": "Start over.",
+									"outputKey": "718f1f80-fcd9-30b3-882b-bbdf6a23480c",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_y16po947y",
+									"questionId": "_ab7u16jjg",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "BUTTON",
+									"outputType": "SKIP",
+									"response": "<p>No problem! We hope were able to answer your questions!</p>",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": "No, thanks.",
+									"outputKey": "d77816a9-a3c2-3e06-84b5-262d95203971",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_c993iq3km",
+									"questionId": "_ab7u16jjg",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "BUTTON",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": "I need to speak to a different department",
+									"outputKey": "667cc9f8-add0-370b-bead-1cc23b45f09d",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_0rmxc0ut0",
+									"questionId": "_ab7u16jjg",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								}
+							],
+							"isButtonOnly": true,
+							"isDropdown": false,
+							"fieldConfiguration": null,
+							"isCaptureQuestion": false
+						}
+					},
+					{
+						"id": "_ruwhiw59m",
+						"type": "QUESTION",
+						"configuration": {
+							"outputs": {
+								"default": {
+									"nodeId": "END_CONVERSATION"
+								},
+								"db05ec8b-d1af-30ed-ad33-1a6b13ba9b19": {
+									"nodeId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f"
+								},
+								"b39a7619-5e06-3c2c-8e28-99ef7d72ed06": {
+									"nodeId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f"
+								},
+								"20b9c87e-b872-321d-bf3e-09af70fdc1c5": {
+									"nodeId": "_kimzrs9ql"
+								}
+							},
+							"prompt": "<p>You can jump back to our main menu if you need anything else 😊</p>",
+							"defaultAnswer": null,
+							"defaultResponse": {
+								"response": "",
+								"outputKey": "default",
+								"actionGroup": null,
+								"actionGroupConfiguration": null,
+								"hasAnythingSet": false
+							},
+							"defaultAnswerId": null,
+							"answers": [
+								{
+									"type": "BUTTON",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": "Main menu",
+									"outputKey": "b39a7619-5e06-3c2c-8e28-99ef7d72ed06",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_a2tb8trqg",
+									"questionId": "_ruwhiw59m",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "BUTTON",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": "All good!",
+									"outputKey": "20b9c87e-b872-321d-bf3e-09af70fdc1c5",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_gj0ljkd4g",
+									"questionId": "_ruwhiw59m",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_DEFAULT",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "db05ec8b-d1af-30ed-ad33-1a6b13ba9b19",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_qn821bi5n",
+									"questionId": "_ruwhiw59m",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								}
+							],
+							"isButtonOnly": true,
+							"isDropdown": false,
+							"fieldConfiguration": null,
+							"isCaptureQuestion": false
+						}
+					},
+					{
+						"id": "_kkxxzdq0c",
+						"type": "QUESTION",
+						"configuration": {
+							"outputs": {
+								"795e1fd2-8956-3ba2-90c2-c378513b41eb": {
+									"nodeId": "_h731ex27w"
+								},
+								"e547bf0b-baf4-3336-9f59-fa3572649a74": {
+									"nodeId": "_kkxxzdq0c"
+								},
+								"SPECIAL_DOMAIN_ANSWER": {
+									"nodeId": "_kkxxzdq0c"
+								}
+							},
+							"prompt": "<p>Before we get you connected with the team, what is your company email?</p>",
+							"defaultAnswer": null,
+							"defaultResponse": null,
+							"defaultAnswerId": "_4naw7z57f",
+							"answers": [
+								{
+									"type": "VALIDATE",
+									"outputType": "SKIP",
+									"response": "<p>Got it! Thanks for entering your email address.</p>",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "795e1fd2-8956-3ba2-90c2-c378513b41eb",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_3lwi0aqcq",
+									"questionId": "_kkxxzdq0c",
+									"validationType": "EMAIL",
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "INVALIDATE",
+									"outputType": "NONE",
+									"response": "<p>Sorry, I didn't understand that. I need a valid email address.</p>",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "e547bf0b-baf4-3336-9f59-fa3572649a74",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_4naw7z57f",
+									"questionId": "_kkxxzdq0c",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								}
+							],
+							"isButtonOnly": null,
+							"isDropdown": false,
+							"fieldConfiguration": {
+								"fieldName": "email",
+								"skipIfFull": false,
+								"loop": true,
+								"loopConfiguration": {
+									"maxLoops": 1,
+									"invalidResponses": [],
+									"hasSpecialDomainRule": true,
+									"specialDomainRule": {
+										"includeKnownDomains": true,
+										"domains": [
+											"gmail.com",
+											"yahoo.com",
+											"icloud.com",
+											"hotmail.com",
+											"outlook.com"
+										],
+										"answer": {
+											"type": "BUTTON",
+											"outputType": "NONE",
+											"response": "<p>Sorry, I didn't understand that. I need a valid business email address.</p>",
+											"examples": [],
+											"keywords": [],
+											"aiTopicIds": [],
+											"keywordGroupId": null,
+											"buttonText": null,
+											"outputKey": "SPECIAL_DOMAIN_ANSWER",
+											"actionGroup": null,
+											"actionGroupConfiguration": null,
+											"id": "_ur1zzoht3",
+											"questionId": "_kkxxzdq0c",
+											"validationType": null,
+											"validationConfig": {
+												"phoneCountryCode": "US"
+											}
+										},
+										"maxPersonalEmailLoops": null,
+										"personalEmailLoopingEnabled": true
+									}
+								}
+							},
+							"isCaptureQuestion": true
+						}
+					},
+					{
+						"id": "_0rxf1aix5",
+						"type": "QUESTION",
+						"configuration": {
+							"outputs": {
+								"40c324ca-6760-3e68-b55d-14c582b69957": {
+									"nodeId": "_66mab57tc"
+								},
+								"default": {
+									"nodeId": "_66mab57tc"
+								}
+							},
+							"prompt": "<p>What is your first name?</p>",
+							"defaultAnswer": null,
+							"defaultResponse": {
+								"response": "",
+								"outputKey": "default",
+								"actionGroup": null,
+								"actionGroupConfiguration": null,
+								"hasAnythingSet": false
+							},
+							"defaultAnswerId": null,
+							"answers": [
+								{
+									"type": "AI_DEFAULT",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "40c324ca-6760-3e68-b55d-14c582b69957",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_xp52bc0h",
+									"questionId": "_0rxf1aix5",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								}
+							],
+							"isButtonOnly": false,
+							"isDropdown": false,
+							"fieldConfiguration": {
+								"fieldName": "first_name",
+								"skipIfFull": false,
+								"loop": false,
+								"loopConfiguration": null
+							},
+							"isCaptureQuestion": false
+						}
+					},
+					{
+						"id": "_p4ex0a1i1",
+						"type": "QUESTION",
+						"configuration": {
+							"outputs": {
+								"default": {
+									"nodeId": "_cm4oll65v"
+								},
+								"f4ff52de-3d30-3325-ac87-d8347fe98525": {
+									"nodeId": "_cm4oll65v"
+								}
+							},
+							"prompt": "<p>What is your last name?</p>",
+							"defaultAnswer": null,
+							"defaultResponse": {
+								"response": "",
+								"outputKey": "default",
+								"actionGroup": null,
+								"actionGroupConfiguration": null,
+								"hasAnythingSet": false
+							},
+							"defaultAnswerId": null,
+							"answers": [
+								{
+									"type": "AI_DEFAULT",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "f4ff52de-3d30-3325-ac87-d8347fe98525",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_1a37n9c1p",
+									"questionId": "_p4ex0a1i1",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								}
+							],
+							"isButtonOnly": false,
+							"isDropdown": false,
+							"fieldConfiguration": null,
+							"isCaptureQuestion": false
+						}
+					},
+					{
+						"id": "_wgmwq6ceo",
+						"type": "QUESTION",
+						"configuration": {
+							"outputs": {
+								"default": {
+									"nodeId": "_ih5gxuafi"
+								},
+								"71a77fc9-e3c4-3d9e-bc63-f4157ddea954": {
+									"nodeId": "_ih5gxuafi"
+								}
+							},
+							"prompt": "<p>What is your company name?</p>",
+							"defaultAnswer": null,
+							"defaultResponse": {
+								"response": "",
+								"outputKey": "default",
+								"actionGroup": null,
+								"actionGroupConfiguration": null,
+								"hasAnythingSet": false
+							},
+							"defaultAnswerId": null,
+							"answers": [
+								{
+									"type": "AI_DEFAULT",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "71a77fc9-e3c4-3d9e-bc63-f4157ddea954",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_wsjj8qrm3",
+									"questionId": "_wgmwq6ceo",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								}
+							],
+							"isButtonOnly": false,
+							"isDropdown": false,
+							"fieldConfiguration": {
+								"fieldName": "employment_name",
+								"skipIfFull": false,
+								"loop": false,
+								"loopConfiguration": null
+							},
+							"isCaptureQuestion": false
+						}
+					},
+					{
+						"id": "_6v283gvht",
+						"type": "QUESTION",
+						"configuration": {
+							"outputs": {
+								"default": {
+									"nodeId": "END_CONVERSATION"
+								},
+								"990ff44e-5850-3fd2-b402-746a35d25f84": {
+									"nodeId": "_ab7u16jjg"
+								},
+								"006227b1-ca88-3719-8690-c55b9c8cf068": {
+									"nodeId": "_ab7u16jjg"
+								},
+								"8935ee7a-cf85-3bb3-b9da-890b75e5bfa9": {
+									"nodeId": "_84p1ad1yp"
+								}
+							},
+							"prompt": "<p>Was that Helpful?</p>",
+							"defaultAnswer": null,
+							"defaultResponse": {
+								"response": "",
+								"outputKey": "default",
+								"actionGroup": null,
+								"actionGroupConfiguration": null,
+								"hasAnythingSet": false
+							},
+							"defaultAnswerId": null,
+							"answers": [
+								{
+									"type": "BUTTON",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": "👍",
+									"outputKey": "006227b1-ca88-3719-8690-c55b9c8cf068",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_e9so45d5a",
+									"questionId": "_6v283gvht",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "BUTTON",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": "👎",
+									"outputKey": "8935ee7a-cf85-3bb3-b9da-890b75e5bfa9",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_5x5dgs20p",
+									"questionId": "_6v283gvht",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_DEFAULT",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "990ff44e-5850-3fd2-b402-746a35d25f84",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_4lnbmaysf",
+									"questionId": "_6v283gvht",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								}
+							],
+							"isButtonOnly": true,
+							"isDropdown": false,
+							"fieldConfiguration": null,
+							"isCaptureQuestion": false
+						}
+					},
+					{
+						"id": "_go2z1ukxv",
+						"type": "QUESTION",
+						"configuration": {
+							"outputs": {
+								"14162f41-2972-3644-a4b6-ecbddc8b4c2e": {
+									"nodeId": "dc1834c5-5fb1-4832-94a5-15bd073f492a"
+								},
+								"default": {
+									"nodeId": "END_CONVERSATION"
+								},
+								"249a70a4-8caf-38d0-aaa5-e9f3c321f836": {
+									"nodeId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f"
+								},
+								"26e47a15-588c-3383-9422-95995e682428": {
+									"nodeId": "_qiwk8yqkd"
+								},
+								"f1815050-b095-3b81-866c-10236f6dc630": {
+									"nodeId": "cf82aa68-d62c-4f33-9ec4-7ba6e46a0b8a"
+								},
+								"5898a9e1-6357-3058-9ab0-9b99548ce0d4": {
+									"nodeId": "_90njd4a4d"
+								},
+								"e903141a-4c2b-3378-96e3-00e98df47f5a": {
+									"nodeId": "a227b02c-1a4e-48ad-aadc-58ae28aa439f"
+								}
+							},
+							"prompt": "<p>Anything else I can help you with today?</p>",
+							"defaultAnswer": null,
+							"defaultResponse": {
+								"response": "",
+								"outputKey": "default",
+								"actionGroup": null,
+								"actionGroupConfiguration": null,
+								"hasAnythingSet": false
+							},
+							"defaultAnswerId": null,
+							"answers": [
+								{
+									"type": "BUTTON",
+									"outputType": "SKIP",
+									"response": "<p>Great!</p>",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": "Book a Demo",
+									"outputKey": "14162f41-2972-3644-a4b6-ecbddc8b4c2e",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_n5dlyok4v",
+									"questionId": "_go2z1ukxv",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "BUTTON",
+									"outputType": "SKIP",
+									"response": "<p>No problem! Check out our eBooks, White Papers, Webinars, Guides and much more <a href=\"https://www.exclaimer.com/resources/\" target=\"_blank\">here</a>!</p>",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": "I want to learn more",
+									"outputKey": "f1815050-b095-3b81-866c-10236f6dc630",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_mdr0e7kvn",
+									"questionId": "_go2z1ukxv",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "BUTTON",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": "I need support",
+									"outputKey": "26e47a15-588c-3383-9422-95995e682428",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_zxsorxktv",
+									"questionId": "_go2z1ukxv",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "BUTTON",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": "Start over",
+									"outputKey": "249a70a4-8caf-38d0-aaa5-e9f3c321f836",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_jr7ra8xy9",
+									"questionId": "_go2z1ukxv",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "BUTTON",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": "No, thanks",
+									"outputKey": "5898a9e1-6357-3058-9ab0-9b99548ce0d4",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_m5xiqaxi6",
+									"questionId": "_go2z1ukxv",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_DEFAULT",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "e903141a-4c2b-3378-96e3-00e98df47f5a",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_2rljdy4xo",
+									"questionId": "_go2z1ukxv",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								}
+							],
+							"isButtonOnly": true,
+							"isDropdown": false,
+							"fieldConfiguration": null,
+							"isCaptureQuestion": false
+						}
+					},
+					{
+						"id": "_84p1ad1yp",
+						"type": "QUESTION",
+						"configuration": {
+							"outputs": {
+								"default": {
+									"nodeId": "_7q0itggow"
+								},
+								"0450235d-7114-37ac-b73b-286f3d1e57f8": {
+									"nodeId": "_7q0itggow"
+								}
+							},
+							"prompt": "<p>Please share your subscription ID</p>",
+							"defaultAnswer": null,
+							"defaultResponse": {
+								"response": "",
+								"outputKey": "default",
+								"actionGroup": null,
+								"actionGroupConfiguration": null,
+								"hasAnythingSet": false
+							},
+							"defaultAnswerId": null,
+							"answers": [
+								{
+									"type": "AI_DEFAULT",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "0450235d-7114-37ac-b73b-286f3d1e57f8",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_iy27nsjv1",
+									"questionId": "_84p1ad1yp",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								}
+							],
+							"isButtonOnly": false,
+							"isDropdown": false,
+							"fieldConfiguration": {
+								"fieldName": "subscription_id",
+								"skipIfFull": false,
+								"loop": false,
+								"loopConfiguration": null
+							},
+							"isCaptureQuestion": false
+						}
+					}
+				],
+				"displayOrder": [
+					"_660ylzkur",
+					"a227b02c-1a4e-48ad-aadc-58ae28aa439f",
+					"0a5aaedf-9e8f-43fa-93a5-e81041332f7c",
+					"c27166cf-1c20-40d0-b0aa-2ada488c2132",
+					"a37360ad-4b74-4861-bc8a-1a7c2ada4c00",
+					"27563868-1221-4b4e-82e7-072dc3d8aba4",
+					"dc1834c5-5fb1-4832-94a5-15bd073f492a",
+					"cf82aa68-d62c-4f33-9ec4-7ba6e46a0b8a",
+					"744138f0-b09c-40ea-89ce-ad33fc043c4d",
+					"_xcuwrrm80",
+					"_oe7vgz9g0",
+					"_6lbpfb6vq",
+					"_xfq4rcsse",
+					"_sh3ho3q0p",
+					"_n90ukc4ee",
+					"_xd75d3n5r",
+					"_ab7u16jjg",
+					"_0leg5ms7s",
+					"_aekgt6g4d",
+					"_13uwspm9k",
+					"_ujb2ufl9g",
+					"_2rkwhzgws",
+					"_ujuioet4a",
+					"_cfj3lgryt",
+					"_3xejxor6e",
+					"_fh0w3b6wl",
+					"_ruwhiw59m",
+					"_kimzrs9ql",
+					"_8f283o1yf",
+					"_0rxf1aix5",
+					"_kkxxzdq0c",
+					"_wgmwq6ceo",
+					"_go2z1ukxv",
+					"_h731ex27w",
+					"_66mab57tc",
+					"_p4ex0a1i1",
+					"_cm4oll65v",
+					"_ih5gxuafi",
+					"_c70ebsvtw",
+					"_jl9acisgp",
+					"_vdb37kcw3",
+					"_90njd4a4d",
+					"_7q0itggow",
+					"_6b463ltof",
+					"_u2s64v40v",
+					"_6v283gvht",
+					"_u328gm736",
+					"_sr0hh1j1u",
+					"_qiwk8yqkd",
+					"_46q2v7103",
+					"_3u8nfypmk",
+					"_84p1ad1yp"
+				],
+				"greeting": "",
+				"interactionId": 356220,
+				"campaignId": 2725447,
+				"endOfConversationConfig": null,
+				"allowTeamAvailability": true,
+				"playbookVersion": 1677724427477
+			}
+		}
+	],
+	"goals": [
+		{
+			"id": "0d0aa8a5-15d3-4d61-9120-aab303e91018",
+			"name": "Customer Success",
+			"playbookId": 2628856,
+			"routing": null,
+			"message": {
+				"body": "<p>Thanks for chatting with us! Feel free to check out our website if you have other questions</p>"
+			},
+			"classification": {
+				"classificationId": "DO1FaKCZ4x6n"
+			},
+			"markCQL": {
+				"score": 0
+			}
+		},
+		{
+			"id": "de6d9fed-1af4-43de-b380-f684de5f3ee4",
+			"name": "Support",
+			"playbookId": 2628856,
+			"routing": null,
+			"message": {
+				"body": "<p>Thanks for writing up your ticket. Feel free to check out our website if you have other questions.</p>"
+			},
+			"classification": {
+				"classificationId": "zXYqWPh6CJTC"
+			},
+			"markCQL": {
+				"score": 0
+			}
+		},
+		{
+			"id": "d564f55a-c2cd-4857-bc53-e40017e87406",
+			"name": "Support",
+			"playbookId": 2628856,
+			"routing": null,
+			"message": {
+				"body": "<p>Thanks for writing up your ticket! Feel free to check out our website if you have other questions.</p>"
+			},
+			"classification": {
+				"classificationId": "zXYqWPh6CJTC"
+			},
+			"markCQL": {
+				"score": 0
+			}
+		}
+	],
+	"targeting": {
+		"userListIds": [],
+		"excludedUserListIds": [],
+		"accountListIds": [],
+		"excludedAccountListIds": [],
+		"rolloutPercent": null,
+		"display": [
+			[
+				{
+					"field": "url",
+					"operator": "includesAnyOf",
+					"value": [
+						"https://exclaimer.com/"
+					],
+					"providerName": null
+				}
+			]
+		],
+		"audience": "EVERYONE",
+		"displayId": null,
+		"endingAt": null,
+		"delay": null,
+		"dueAt": null,
+		"dueAtTaskQueueVersion": 0,
+		"inboxId": null,
+		"smartFilters": null,
+		"campaignReenrollmentType": "ONCE_PER_SESSION",
+		"id": "a50ba400-35ba-4132-afb4-72d6417b706d",
+		"unenrollOnReply": false,
+		"unenrollOnReplyByDomain": false,
+		"workspaceConditions": [],
+		"workspaceTargetingConditions": []
+	},
+	"actionGroups": [
+		{
+			"initialized": true,
+			"id": "3b799b14-74de-439a-8c7f-ba051b5bf153",
+			"name": "__ACTION_NAME",
+			"createdAt": 1677698366601,
+			"updatedAt": 1677724427491,
+			"playbookId": 2628856,
+			"orgId": 5070832,
+			"outputType": "NONE",
+			"tagConversationConfig": {
+				"tagIds": [
+					2291614,
+					2290399
+				]
+			},
+			"endUserPropertiesConfig": {
+				"propertyMap": {
+					"lead_status": "MQL"
+				}
+			},
+			"outputId": null,
+			"experimental": false
+		},
+		{
+			"initialized": true,
+			"id": "23f56bd2-9f95-4515-a010-b7ba5752df66",
+			"name": "__ACTION_NAME",
+			"createdAt": 1677698366596,
+			"updatedAt": 1677724427498,
+			"playbookId": 2628856,
+			"orgId": 5070832,
+			"outputType": "NONE",
+			"endUserPropertiesConfig": {
+				"propertyMap": {
+					"lead_status": "MQL"
+				}
+			},
+			"outputId": null,
+			"experimental": false
+		},
+		{
+			"initialized": true,
+			"id": "1bb5c1ea-318f-4274-96dc-0b825593e934",
+			"name": "__ACTION_NAME",
+			"createdAt": 1677698366537,
+			"updatedAt": 1677724427504,
+			"playbookId": 2628856,
+			"orgId": 5070832,
+			"outputType": "NONE",
+			"tagConversationConfig": {
+				"tagIds": [
+					2291614,
+					2290399
+				]
+			},
+			"endUserPropertiesConfig": {
+				"propertyMap": {
+					"lead_status": "MQL"
+				}
+			},
+			"outputId": null,
+			"experimental": false
+		},
+		{
+			"initialized": true,
+			"id": "48e7fed6-4d4f-4f49-82a3-648a7074ea9c",
+			"name": "__ACTION_NAME",
+			"createdAt": 1677698366519,
+			"updatedAt": 1677724427510,
+			"playbookId": 2628856,
+			"orgId": 5070832,
+			"outputType": "NONE",
+			"tagConversationConfig": {
+				"tagIds": [
+					2290399
+				]
+			},
+			"endUserPropertiesConfig": {
+				"propertyMap": {
+					"lead_status": "MQL"
+				}
+			},
+			"outputId": null,
+			"experimental": false
+		},
+		{
+			"initialized": true,
+			"id": "352b82df-bbf5-4715-86a9-1dd5cd93ab8b",
+			"name": "__ACTION_NAME",
+			"createdAt": 1677698366531,
+			"updatedAt": 1677724427518,
+			"playbookId": 2628856,
+			"orgId": 5070832,
+			"outputType": "NONE",
+			"tagConversationConfig": {
+				"tagIds": [
+					2290401
+				]
+			},
+			"outputId": null,
+			"experimental": false
+		},
+		{
+			"initialized": true,
+			"id": "b1c16c81-2560-4506-b3ed-4d3d200c5270",
+			"name": "__ACTION_NAME",
+			"createdAt": 1677698366543,
+			"updatedAt": 1677724427525,
+			"playbookId": 2628856,
+			"orgId": 5070832,
+			"outputType": "NONE",
+			"tagConversationConfig": {
+				"tagIds": [
+					2289378
+				]
+			},
+			"outputId": null,
+			"experimental": false
+		},
+		{
+			"initialized": true,
+			"id": "29990cf9-09e5-449e-9623-98ac633946b9",
+			"name": "__ACTION_NAME",
+			"createdAt": 1677698366556,
+			"updatedAt": 1677724427533,
+			"playbookId": 2628856,
+			"orgId": 5070832,
+			"outputType": "NONE",
+			"tagConversationConfig": {
+				"tagIds": [
+					2289378
+				]
+			},
+			"outputId": null,
+			"experimental": false
+		},
+		{
+			"initialized": true,
+			"id": "d5293dcc-d734-4947-8cc7-85c3196e0e12",
+			"name": "__ACTION_NAME",
+			"createdAt": 1677698366548,
+			"updatedAt": 1677724427538,
+			"playbookId": 2628856,
+			"orgId": 5070832,
+			"outputType": "NONE",
+			"tagConversationConfig": {
+				"tagIds": [
+					2289378
+				]
+			},
+			"outputId": null,
+			"experimental": false
+		},
+		{
+			"initialized": true,
+			"id": "d5b6367e-1786-48c2-b39e-beb0e514d4c4",
+			"name": "__ACTION_NAME",
+			"createdAt": 1677698366565,
+			"updatedAt": 1677724427544,
+			"playbookId": 2628856,
+			"orgId": 5070832,
+			"outputType": "NONE",
+			"tagConversationConfig": {
+				"tagIds": [
+					2289378
+				]
+			},
+			"outputId": null,
+			"experimental": false
+		},
+		{
+			"initialized": true,
+			"id": "4ccb1105-364f-4059-97cd-a533b03cbb98",
+			"name": "__ACTION_NAME",
+			"createdAt": 1677698366572,
+			"updatedAt": 1677724427550,
+			"playbookId": 2628856,
+			"orgId": 5070832,
+			"outputType": "NONE",
+			"endUserPropertiesConfig": {
+				"propertyMap": {
+					"lead_status": "MQL"
+				}
+			},
+			"outputId": null,
+			"experimental": false
+		},
+		{
+			"initialized": true,
+			"id": "51a56380-e43b-4dd3-9a99-3eed60483e32",
+			"name": "__ACTION_NAME",
+			"createdAt": 1677698366578,
+			"updatedAt": 1677724427555,
+			"playbookId": 2628856,
+			"orgId": 5070832,
+			"outputType": "NONE",
+			"tagConversationConfig": {
+				"tagIds": [
+					2291614
+				]
+			},
+			"outputId": null,
+			"experimental": false
+		},
+		{
+			"initialized": true,
+			"id": "9adce9f2-691e-4383-b910-326e49b52509",
+			"name": "__ACTION_NAME",
+			"createdAt": 1677698366489,
+			"updatedAt": 1677724427560,
+			"playbookId": 2628856,
+			"orgId": 5070832,
+			"outputType": "NONE",
+			"tagConversationConfig": {
+				"tagIds": [
+					2290399
+				]
+			},
+			"outputId": null,
+			"experimental": false
+		},
+		{
+			"initialized": true,
+			"id": "4c2daf3f-b93f-4a62-8392-b1bc5f1bdd31",
+			"name": "__ACTION_NAME",
+			"createdAt": 1677698366512,
+			"updatedAt": 1677724427565,
+			"playbookId": 2628856,
+			"orgId": 5070832,
+			"outputType": "NONE",
+			"tagConversationConfig": {
+				"tagIds": [
+					2289385
+				]
+			},
+			"outputId": null,
+			"experimental": false
+		},
+		{
+			"initialized": true,
+			"id": "deda318c-e6c6-48d8-ad1f-3435197d4fae",
+			"name": "__ACTION_NAME",
+			"createdAt": 1677698366507,
+			"updatedAt": 1677724427573,
+			"playbookId": 2628856,
+			"orgId": 5070832,
+			"outputType": "NONE",
+			"tagConversationConfig": {
+				"tagIds": [
+					2289386
+				]
+			},
+			"outputId": null,
+			"experimental": false
+		},
+		{
+			"initialized": true,
+			"id": "fb7006a6-2d20-4aa8-9f57-23bc86e13bcd",
+			"name": "__ACTION_NAME",
+			"createdAt": 1677698366481,
+			"updatedAt": 1677724427578,
+			"playbookId": 2628856,
+			"orgId": 5070832,
+			"outputType": "NONE",
+			"endUserPropertiesConfig": {
+				"propertyMap": {
+					"lead_status": "MQL"
+				}
+			},
+			"outputId": null,
+			"experimental": false
+		},
+		{
+			"initialized": true,
+			"id": "32774e96-8c57-4992-80be-345319451af7",
+			"name": "__ACTION_NAME",
+			"createdAt": 1677698366585,
+			"updatedAt": 1677724427583,
+			"playbookId": 2628856,
+			"orgId": 5070832,
+			"outputType": "NONE",
+			"tagConversationConfig": {
+				"tagIds": [
+					2291617
+				]
+			},
+			"endUserPropertiesConfig": {
+				"propertyMap": {
+					"lead_status": "MQL"
+				}
+			},
+			"outputId": null,
+			"experimental": false
+		},
+		{
+			"initialized": true,
+			"id": "58a041de-a0b3-4db6-99b9-c58913b561fe",
+			"name": "__ACTION_NAME",
+			"createdAt": 1677698366525,
+			"updatedAt": 1677724427589,
+			"playbookId": 2628856,
+			"orgId": 5070832,
+			"outputType": "NONE",
+			"tagConversationConfig": {
+				"tagIds": [
+					2291739
+				]
+			},
+			"endUserPropertiesConfig": {
+				"propertyMap": {
+					"lead_status": "MQL"
+				}
+			},
+			"outputId": null,
+			"experimental": false
+		}
+	],
+	"experiment": null,
+	"workspaceId": "default"
+}

@@ -1,0 +1,278 @@
+{
+	"id": 2627971,
+	"name": "Article Lookup Exclaimer",
+	"orgId": 5051140,
+	"status": "DISABLED",
+	"meta": {
+		"featureSource": "audiences",
+		"clonedFrom": 2623080,
+		"isEmbeddedOnly": true
+	},
+	"taskIdentifier": {
+		"version": 0,
+		"key": "2627971",
+		"group": "delay-playbook"
+	},
+	"priority": null,
+	"reportType": "LANDING_PAGE_LEADBOT",
+	"createdAt": 1677542089405,
+	"updatedAt": 1677542089526,
+	"createdAuthorId": 5136942,
+	"updatedAuthorId": 5136942,
+	"actions": [
+		{
+			"id": 2623965,
+			"actionType": "INTERACTION",
+			"action": {
+				"slug": "leadbot-03d1c681-3028da16-15fbdba9",
+				"startingNodeId": null,
+				"questions": [],
+				"skills": [
+					{
+						"id": "_dr6lstvno",
+						"type": "END_OF_CONVERSATION",
+						"configuration": {
+							"outputs": {},
+							"endOfConversationConfig": {
+								"endOfConversationType": "AUTOCLOSE",
+								"messageText": null,
+								"label": null
+							}
+						}
+					},
+					cc
+					{
+						"id": "_oc22wnxtm",
+						"type": "END_OF_CONVERSATION",
+						"configuration": {
+							"outputs": {},
+							"endOfConversationConfig": {
+								"endOfConversationType": "AUTOCLOSE",
+								"messageText": null,
+								"label": null
+							}
+						}
+					},
+					{
+						"id": "_agtrlsuze",
+						"type": "QUESTION",
+						"configuration": {
+							"outputs": {
+								"default": {
+									"nodeId": "_webhook"
+								},
+								"fb09c907-84c8-3d9e-93fc-4ce238fe746d": {
+									"nodeId": "_webhook"
+								}
+							},
+							"prompt": "<p>Enter your search</p>",
+							"defaultAnswer": null,
+							"defaultResponse": {
+								"response": "",
+								"outputKey": "default",
+								"actionGroup": null,
+								"actionGroupConfiguration": null,
+								"hasAnythingSet": false
+							},
+							"defaultAnswerId": null,
+							"answers": [
+								{
+									"type": "AI_DEFAULT",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "fb09c907-84c8-3d9e-93fc-4ce238fe746d",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_lnku4i0vr",
+									"questionId": "_agtrlsuze",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								}
+							],
+							"isButtonOnly": false,
+							"isDropdown": false,
+							"fieldConfiguration": null,
+							"isCaptureQuestion": false
+						}
+					},
+					{
+						"id": "_nto0ebhsf",
+						"type": "QUESTION",
+						"configuration": {
+							"outputs": {
+								"5717de72-8041-3a7e-9f3b-c044288d226f": {
+									"nodeId": "_dr6lstvno"
+								},
+								"default": {
+									"nodeId": "END_CONVERSATION"
+								},
+								"2d20cb6b-05fe-31a2-b04a-34b6cde3b670": {
+									"nodeId": "_dr6lstvno"
+								},
+								"c8ebdc14-bb70-3d23-879e-a432249eadad": {
+									"nodeId": "_agtrlsuze"
+								}
+							},
+							"prompt": "<p>Was this helpful?</p>",
+							"defaultAnswer": null,
+							"defaultResponse": {
+								"response": "",
+								"outputKey": "default",
+								"actionGroup": null,
+								"actionGroupConfiguration": null,
+								"hasAnythingSet": false
+							},
+							"defaultAnswerId": null,
+							"answers": [
+								{
+									"type": "BUTTON",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": "Yes 😀",
+									"outputKey": "2d20cb6b-05fe-31a2-b04a-34b6cde3b670",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_gdg1eb651",
+									"questionId": "_nto0ebhsf",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "BUTTON",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": "No 🤔",
+									"outputKey": "c8ebdc14-bb70-3d23-879e-a432249eadad",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_ivix5ig4x",
+									"questionId": "_nto0ebhsf",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								},
+								{
+									"type": "AI_DEFAULT",
+									"outputType": "SKIP",
+									"response": "",
+									"examples": [],
+									"keywords": [],
+									"aiTopicIds": [],
+									"keywordGroupId": null,
+									"buttonText": null,
+									"outputKey": "5717de72-8041-3a7e-9f3b-c044288d226f",
+									"actionGroup": null,
+									"actionGroupConfiguration": null,
+									"id": "_plv462jgh",
+									"questionId": "_nto0ebhsf",
+									"validationType": null,
+									"validationConfig": {
+										"phoneCountryCode": "US"
+									}
+								}
+							],
+							"isButtonOnly": true,
+							"isDropdown": false,
+							"fieldConfiguration": null,
+							"isCaptureQuestion": false
+						}
+					}
+				],
+				"displayOrder": [
+					"_agtrlsuze",
+					"_nto0ebhsf",
+					"_oc22wnxtm"
+				],
+				"greeting": "",
+				"interactionId": 355958,
+				"campaignId": 2724560,
+				"endOfConversationConfig": null,
+				"allowTeamAvailability": true,
+				"playbookVersion": null
+			}
+		}
+	],
+	"goals": [
+		{
+			"id": "8e505b83-5e75-48e5-bd12-089d8ef59564",
+			"name": null,
+			"playbookId": 2627971,
+			"routing": null,
+			"message": {
+				"body": "Thanks for chatting with us! Feel free to check out our website if you have other questions"
+			},
+			"classification": {
+				"classificationId": "Hi6vn83iIv9M"
+			},
+			"statusChange": {
+				"status": "CLOSED",
+				"keepClosed": null,
+				"keepClosedMessage": null
+			}
+		},
+		{
+			"id": "913a2462-c90f-43ee-80dd-25894bc5aace",
+			"name": null,
+			"playbookId": 2627971,
+			"routing": {
+				"type": "GLOBAL",
+				"userId": null,
+				"userIds": null,
+				"teamId": null,
+				"possibleRuleIds": null,
+				"rerouteEnabled": true,
+				"isExecute": true,
+				"routeToOnlineAgentsOnly": true
+			},
+			"message": {
+				"body": "Put what you want the bot to say to someone who reaches this goal, here."
+			},
+			"classification": {
+				"classificationId": "w6TRQRpe9twy"
+			}
+		}
+	],
+	"targeting": {
+		"userListIds": [],
+		"excludedUserListIds": [],
+		"accountListIds": [],
+		"excludedAccountListIds": [],
+		"rolloutPercent": null,
+		"display": [],
+		"audience": "NONE",
+		"displayId": null,
+		"endingAt": null,
+		"delay": null,
+		"dueAt": null,
+		"dueAtTaskQueueVersion": 0,
+		"inboxId": null,
+		"smartFilters": null,
+		"campaignReenrollmentType": "ONCE_PER_SESSION",
+		"id": "d6c324da-db2b-4bb5-b9b5-b70ad5a918aa",
+		"unenrollOnReply": false,
+		"unenrollOnReplyByDomain": false,
+		"workspaceConditions": [],
+		"workspaceTargetingConditions": []
+	},
+	"actionGroups": [],
+	"experiment": null,
+	"workspaceId": "default"
+}
