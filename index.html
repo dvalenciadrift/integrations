@@ -58,10 +58,13 @@
 			}
 		})();
 		drift.SNIPPET_VERSION = "0.3.1";
-		drift('config', {
-			iframeMode: true,
-			iframeSandbox: 'allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms'
+		drift.on('ready', function (api, payload) {
+			drift('config', {
+				iframeMode: true,
+				iframeSandbox: 'allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms'
+			})
 		})
+
 		drift.load("3vyrkmr4vcww");
 	</script>
 	<script>
